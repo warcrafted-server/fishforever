@@ -11,6 +11,8 @@ globals = {
 }
 
 read_globals = {
+    "GetCursorPosition",
+    "Minimap",
     "LootSlot",
     "SecureCmdList",
     "C_Item",

@@ -52,6 +52,10 @@ ns.defaults = {
             sound = true,
             flash = true,
         },
+        minimap = {
+            hide = false,
+            angle = 200,
+        },
     },
 }
 

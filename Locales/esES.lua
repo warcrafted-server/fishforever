@@ -17,6 +17,7 @@ local translations = {
     SLASH_HELP_DIAG = "Comprueba qué API del cliente hay y guarda el resultado en FishForeverDB.diag.",
     SLASH_HELP_DEBUG = "Activa o desactiva el registro de eventos guardado en FishForeverDB.debugLog.",
     SLASH_HELP_FISH = "Activa o desactiva el modo pesca: equipa una caña de pescar o restaura tu equipo anterior.",
+    SLASH_HELP_MINIMAP = "Muestra u oculta el botón del minimapa.",
 
     MSG_UNKNOWN_COMMAND = "Comando desconocido: %s.",
     MSG_HELP_HINT = "Escribe /ff help para ver los comandos disponibles.",
@@ -47,6 +48,11 @@ local translations = {
     TIP_MODE = "Clic derecho: modo pesca (equipa la caña / devuelve el equipo anterior).",
     TIP_MOVE = "Mayús + arrastrar: mover. /ff lock para bloquearlo.",
     TIP_NO_KEY = "Asigna una tecla en Atajos de teclado > Accesorios > FishForever para recoger con una pulsación.",
+    TIP_MINIMAP_LEFT = "Clic izquierdo: muestra u oculta el botón flotador.",
+    TIP_MINIMAP_RIGHT = "Clic derecho: activa o desactiva el modo pesca.",
+    TIP_MINIMAP_DRAG = "Arrastrar: mover alrededor del minimapa.",
+    STATUS_MINIMAP_ON = "Modo pesca: activado.",
+    STATUS_MINIMAP_OFF = "Modo pesca: desactivado.",
     MSG_NOT_IN_COMBAT = "No se puede hacer en combate.",
     SLASH_HELP_BUTTON = "Muestra u oculta el botón flotador.",
     SLASH_HELP_LOCK = "Bloquea o desbloquea la posición del botón.",
@@ -55,6 +61,8 @@ local translations = {
     SLASH_HELP_SOUND = "Activa o desactiva el realce de sonido al pescar.",
     MSG_SOUND_ON = "Realce de sonido activado: efectos al máximo y música baja mientras pescas para oír el chapoteo.",
     MSG_SOUND_OFF = "Realce de sonido desactivado.",
+    MSG_MINIMAP_ON = "Botón del minimapa mostrado.",
+    MSG_MINIMAP_OFF = "Botón del minimapa oculto.",
 }
 
 for key, value in pairs(translations) do

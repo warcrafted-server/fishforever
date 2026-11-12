@@ -10,6 +10,7 @@ local L = {
     SLASH_HELP_DIAG = "Check which client APIs are present and save the result to FishForeverDB.diag.",
     SLASH_HELP_DEBUG = "Toggle the event recorder saved to FishForeverDB.debugLog.",
     SLASH_HELP_FISH = "Toggle fishing mode: equip a fishing pole or restore your previous gear.",
+    SLASH_HELP_MINIMAP = "Show or hide the minimap button.",
 
     MSG_UNKNOWN_COMMAND = "Unknown command: %s.",
     MSG_HELP_HINT = "Type /ff help to see the available commands.",
@@ -40,6 +41,11 @@ local L = {
     TIP_MODE = "Right click: toggle fishing mode (pole on / previous gear back).",
     TIP_MOVE = "Shift + drag: move. /ff lock to lock it.",
     TIP_NO_KEY = "Bind a key in Key Bindings > AddOns > FishForever to loot with one press.",
+    TIP_MINIMAP_LEFT = "Left click: show or hide the bobber button.",
+    TIP_MINIMAP_RIGHT = "Right click: toggle fishing mode.",
+    TIP_MINIMAP_DRAG = "Drag: move around the minimap.",
+    STATUS_MINIMAP_ON = "Fishing mode: on.",
+    STATUS_MINIMAP_OFF = "Fishing mode: off.",
     MSG_NOT_IN_COMBAT = "That cannot be done in combat.",
     SLASH_HELP_BUTTON = "Show or hide the bobber button.",
     SLASH_HELP_LOCK = "Lock or unlock the bobber button position.",
@@ -48,6 +54,8 @@ local L = {
     SLASH_HELP_SOUND = "Turn the fishing sound boost on or off.",
     MSG_SOUND_ON = "Sound boost on: effects up and music down while fishing so you hear the splash.",
     MSG_SOUND_OFF = "Sound boost off.",
+    MSG_MINIMAP_ON = "Minimap button shown.",
+    MSG_MINIMAP_OFF = "Minimap button hidden.",
 }
 
 setmetatable(L, {

@@ -17,6 +17,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 - Botón flotador seguro: una pulsación lanza la caña y, con el corcho en el agua, la misma tecla lo recoge (atajo en Accesorios > FishForever). Anillo de tiempo verde, ámbar y rojo, y aviso de captura o pez escapado. `/ff button` y `/ff lock`.
 - Realce de sonido al pescar (efectos al máximo, música y ambiente bajados) para oír la picada, ya que el cliente no la notifica; se restaura al dejar de pescar. `/ff sound` lo activa o desactiva.
 - La pesca va directa a las bolsas al recogerla (sin hacer clic en la ventana de botín).
+- Botón en el minimapa: clic izquierdo muestra u oculta el botón flotador (oculto por defecto) y clic derecho activa o desactiva el modo pesca. `/ff minimap` lo oculta.
 
 ## [0.0.1] - 2026-11-12
 
