@@ -11,6 +11,8 @@ globals = {
 }
 
 read_globals = {
+    "LootSlot",
+    "SecureCmdList",
     "C_Item",
     "ERR_FISH_ESCAPED",
     "IsShiftKeyDown",

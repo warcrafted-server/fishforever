@@ -36,6 +36,15 @@ local function fishingSpell()
     return FISHING_SPELL
 end
 
+local function setCastAction()
+    button:SetAttribute("type1", "spell")
+    button:SetAttribute("spell1", fishingSpell())
+end
+
+local function hasInteractCommand()
+    return (SecureCmdList and SecureCmdList.INTERACT ~= nil) or _G.SLASH_INTERACT1 ~= nil
+end
+
 local function setBorder(color)
     button:SetBackdropBorderColor(color[1], color[2], color[3], 1)
 end
@@ -55,8 +64,14 @@ local function armLoot()
     for _, key in ipairs({ GetBindingKey(BINDING) }) do
         SetOverrideBinding(button, true, key, "INTERACTTARGET")
     end
-    -- A mouse click on the button must not recast and lose the bobber.
-    button:SetAttribute("type", nil)
+    -- A mouse click on the button must not recast and lose the bobber: it
+    -- loots through the game's /interact command when the client has it.
+    if hasInteractCommand() then
+        button:SetAttribute("type1", "macro")
+        button:SetAttribute("macrotext1", "/interact")
+    else
+        button:SetAttribute("type1", nil)
+    end
     bobberOut = true
 end
 
@@ -65,7 +80,7 @@ local function disarmLoot()
         return
     end
     ClearOverrideBindings(button)
-    button:SetAttribute("type", "spell")
+    setCastAction()
     bobberOut = false
 end
 
@@ -121,8 +136,9 @@ local function create()
     button:SetMovable(true)
     button:RegisterForClicks("AnyUp", "AnyDown")
     button:RegisterForDrag("LeftButton")
-    button:SetAttribute("type", "spell")
-    button:SetAttribute("spell", fishingSpell())
+    -- Left button only: a generic "type" would also cast on right click,
+    -- which is reserved for toggling fishing mode.
+    setCastAction()
 
     button:SetBackdrop(Theme.backdrop)
     button:SetBackdropColor(palette.windowBg[1], palette.windowBg[2], palette.windowBg[3], 0.95)
@@ -211,7 +227,7 @@ end)
 ns:RegisterEvent("PLAYER_REGEN_DISABLED", function()
     if bobberOut then
         ClearOverrideBindings(button)
-        button:SetAttribute("type", "spell")
+        setCastAction()
         bobberOut = false
     end
 end)

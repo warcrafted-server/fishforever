@@ -181,10 +181,27 @@ ns:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP", function(_, _, unit)
     end
 end)
 
+-- Fishing loot goes straight to the bags; the player's own press opened it.
+local function takeFishingLoot()
+    if not (ns.db and ns.db.settings.autoLoot) or type(LootSlot) ~= "function" then
+        return
+    end
+    if not isFishingLoot() then
+        return
+    end
+    for slot = GetNumLootItems() or 0, 1, -1 do
+        LootSlot(slot)
+    end
+end
+
 local function onLoot()
     local ok, err = pcall(recordLoot)
     if not ok and ns.Log then
         ns.Log:Record("Recorder error: " .. tostring(err))
+    end
+    ok, err = pcall(takeFishingLoot)
+    if not ok and ns.Log then
+        ns.Log:Record("Auto loot error: " .. tostring(err))
     end
 end
 

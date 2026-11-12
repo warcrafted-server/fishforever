@@ -39,8 +39,9 @@ ns.defaults = {
     },
 
     settings = {
+        autoLoot = true,     -- take fishing loot straight to the bags
         button = {
-            shown = true,
+            shown = false,
             locked = false,
             point = "CENTER",
             x = 0,

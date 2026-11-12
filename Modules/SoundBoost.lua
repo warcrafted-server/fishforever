@@ -5,11 +5,15 @@ local ADDON, ns = ...
 
 local SoundBoost = ns:NewModule("SoundBoost")
 
+-- Absolute values for effects; music and ambience are scaled from the
+-- player's own volume so they get quieter instead of disappearing.
 local BOOST = {
     Sound_EnableSFX = "1",
     Sound_SFXVolume = "1.0",
-    Sound_MusicVolume = "0",
-    Sound_AmbienceVolume = "0",
+}
+local DIM = {
+    Sound_MusicVolume = 0.3,
+    Sound_AmbienceVolume = 0.3,
 }
 
 -- Keep the boost between consecutive casts instead of flickering the volume.
@@ -48,6 +52,14 @@ function SoundBoost:Start()
     for name, value in pairs(BOOST) do
         saved[name] = getCVar(name)
         setCVar(name, value)
+    end
+    for name, factor in pairs(DIM) do
+        local current = getCVar(name)
+        saved[name] = current
+        local number = tonumber(current)
+        if number then
+            setCVar(name, string.format("%.2f", number * factor))
+        end
     end
     alert.savedVolumes = saved
 end

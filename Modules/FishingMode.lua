@@ -8,7 +8,11 @@ local BAG_COUNT = NUM_BAG_SLOTS or 4
 local WEAPON_CLASS = (Enum and Enum.ItemClass and Enum.ItemClass.Weapon) or 2
 local FISHING_POLE_SUBCLASS = (Enum and Enum.ItemWeaponSubclass and Enum.ItemWeaponSubclass.Fishingpole) or 20
 
+local SWAP_DELAY = 0.5
+local TOGGLE_COOLDOWN = 1.0
+
 local pendingAction
+local lastToggle = 0
 
 local function pack(...)
     return { n = select("#", ...), ... }
@@ -293,7 +297,14 @@ function FishingMode:Exit()
     local saved = charDB.savedGear
     if hasSavedGear(saved) then
         restoreSlot(MAIN_HAND, saved.mainHand)
-        restoreSlot(OFF_HAND, saved.offHand)
+        -- The main-hand swap locks items for a moment; equipping the off-hand
+        -- in the same frame fails silently, so it goes slightly later.
+        local offHand = saved.offHand
+        C_Timer.After(SWAP_DELAY, function()
+            if not inCombat() then
+                restoreSlot(OFF_HAND, offHand)
+            end
+        end)
     end
 
     charDB.savedGear = {}
@@ -303,6 +314,12 @@ function FishingMode:Exit()
 end
 
 function FishingMode:Toggle()
+    -- Ignore repeated clicks while the previous swap is still settling.
+    local now = GetTime()
+    if now - lastToggle < TOGGLE_COOLDOWN then
+        return
+    end
+    lastToggle = now
     if inCombat() then
         pendingAction = self:IsActive() and "exit" or "enter"
         ns:Print(ns.L.MSG_FISH_IN_COMBAT)
