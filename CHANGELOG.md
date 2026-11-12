@@ -5,6 +5,10 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+### Añadido
+
+- Esqueleto del addon: `FishForever.toc` (interfaz 16001), namespace y despachador de eventos, comandos `/ff` y `/fishforever` (`help`, `version`) y localización esES/enUS.
+
 ## [0.0.1] - 2026-11-12
 
 ### Añadido

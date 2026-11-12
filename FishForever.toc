@@ -1,0 +1,18 @@
+## Interface: 16001
+## Title: FishForever
+## Title-esES: FishForever
+## Title-esMX: FishForever
+## Notes: Fishing addon for WoW Forever: one-touch bobber button, tackle box with lure timers, session stats and a community map of fishing pools.
+## Notes-esES: Addon de pesca para WoW Forever: botón flotador de un toque, caja de aparejos con temporizador de cebos, estadísticas y mapa colaborativo de bancos de peces.
+## Notes-esMX: Addon de pesca para WoW Forever: botón flotador de un toque, caja de aparejos con temporizador de cebos, estadísticas y mapa colaborativo de bancos de peces.
+## Author: warcrafted
+## Version: @project-version@
+## X-License: WNCL-1.0
+## X-Website: https://github.com/warcrafted-server/fishforever
+## SavedVariables: FishForeverDB
+## SavedVariablesPerCharacter: FishForeverCharDB
+
+Locales/enUS.lua
+Locales/esES.lua
+Core/Init.lua
+Core/Slash.lua
