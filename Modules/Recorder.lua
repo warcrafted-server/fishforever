@@ -20,7 +20,7 @@ local LOOT_WINDOW = 3
 local fishingNames
 local lastChannelEnd = 0
 local channeling = false
-local lastLootAt = 0
+local lootHandled = false
 
 local function isSecret(value)
     return type(issecretvalue) == "function" and issecretvalue(value) or false
@@ -112,12 +112,12 @@ local function recordLoot()
     if ns.readOnlyData or type(db) ~= "table" then
         return
     end
-    -- LOOT_READY and LOOT_OPENED can both fire for the same loot window.
-    local now = GetTime()
-    if now - lastLootAt < 0.5 or not isFishingLoot() then
+    -- LOOT_READY fires twice and LOOT_OPENED once per loot window on this
+    -- client: record only the first one until LOOT_CLOSED.
+    if lootHandled or not isFishingLoot() then
         return
     end
-    lastLootAt = now
+    lootHandled = true
 
     local mapID, x, y = playerPosition()
     if not mapID then
@@ -190,6 +190,9 @@ end
 
 ns:RegisterEvent("LOOT_READY", onLoot)
 ns:RegisterEvent("LOOT_OPENED", onLoot)
+ns:RegisterEvent("LOOT_CLOSED", function()
+    lootHandled = false
+end)
 
 ns:RegisterSlashCommand("stats", function()
     ns:Print(ns.L.MSG_STATS:format(Recorder:PendingCount()))

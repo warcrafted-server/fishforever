@@ -161,7 +161,9 @@ end
 local function timestamp()
     local clock = type(date) == "function" and date("%H:%M:%S") or ""
     local now = type(GetTime) == "function" and GetTime() or 0
-    return string.format("%s.%03d", clock, math.floor(now * 1000) % 1000)
+    -- date() and GetTime() tick independently, so mixing their fractions
+    -- produced out-of-order stamps; keep GetTime() as its own column.
+    return string.format("%s [%.3f]", clock, now)
 end
 
 local function resolve(path)
