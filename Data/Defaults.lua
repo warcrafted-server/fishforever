@@ -10,6 +10,9 @@ ns.NOTICE_VERSION = 1
 -- finds are meant to be shared and must stay non-personal.
 ns.defaults = {
     schemaVersion = ns.SCHEMA_VERSION,
+    log = {},
+    debug = { enabled = false },
+    debugLog = {},
 
     consent = {
         noticeSeen = 0,          -- last NOTICE_VERSION acknowledged

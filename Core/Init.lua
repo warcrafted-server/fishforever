@@ -64,7 +64,11 @@ end
 local prefix = "|cff33ff99" .. ns.L.ADDON_NAME .. "|r"
 
 function ns:Print(message)
-    DEFAULT_CHAT_FRAME:AddMessage(prefix .. ": " .. tostring(message))
+    local text = tostring(message)
+    DEFAULT_CHAT_FRAME:AddMessage(prefix .. ": " .. text)
+    if ns.Log then
+        ns.Log:Record(text)
+    end
 end
 
 function ns:NewModule(name)
