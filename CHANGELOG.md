@@ -1,0 +1,14 @@
+# Changelog
+
+Todos los cambios relevantes de este proyecto se documentan aquí.
+El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y el proyecto usa [SemVer](https://semver.org/lang/es/).
+
+## [Sin publicar]
+
+## [0.0.1] - 2026-11-12
+
+### Añadido
+
+- Documentación inicial: README en español e inglés, hoja de ruta (`docs/ROADMAP.md`) y notas de diseño (`docs/DISENO.md`).
+- Licencia WNCL-1.0 (uso no comercial, con atribución a warcrafted).
+- `TODO.md` con los datos pendientes y el trabajo de la 0.1.0.
