@@ -19,6 +19,7 @@ local translations = {
     MSG_HELP_HINT = "Escribe /ff help para ver los comandos disponibles.",
     MSG_VERSION = "Versión %s.",
     VERSION_UNKNOWN = "desconocida",
+    MSG_DATA_NEWER = "Tus datos guardados son de una versión más nueva de FishForever. No se modificarán; actualiza el addon.",
 }
 
 for key, value in pairs(translations) do

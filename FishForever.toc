@@ -16,3 +16,5 @@ Locales/enUS.lua
 Locales/esES.lua
 Core/Init.lua
 Core/Slash.lua
+Data/Defaults.lua
+Core/SavedVars.lua

@@ -12,6 +12,7 @@ local L = {
     MSG_HELP_HINT = "Type /ff help to see the available commands.",
     MSG_VERSION = "Version %s.",
     VERSION_UNKNOWN = "unknown",
+    MSG_DATA_NEWER = "Your saved data comes from a newer version of FishForever. It will not be modified; please update the addon.",
 }
 
 setmetatable(L, {
