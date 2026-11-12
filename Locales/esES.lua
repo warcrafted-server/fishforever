@@ -21,6 +21,8 @@ local translations = {
     MSG_HELP_HINT = "Escribe /ff help para ver los comandos disponibles.",
     MSG_VERSION = "Versión %s.",
     VERSION_UNKNOWN = "desconocida",
+    SLASH_HELP_STATS = "Muestra cuántas capturas hay registradas y sin compartir.",
+    MSG_STATS = "Capturas registradas y sin compartir: %d.",
     MSG_DATA_NEWER = "Tus datos guardados son de una versión más nueva de FishForever. No se modificarán; actualiza el addon.",
 
     MSG_DIAG_IN_COMBAT = "El diagnóstico no puede ejecutarse en combate. Inténtalo de nuevo al salir.",

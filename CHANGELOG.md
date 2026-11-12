@@ -12,6 +12,7 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 - Registro persistente: todo lo que el addon escribe en el chat queda también en SavedVariables.
 - `/ff diag`: diagnóstico de API, CVars, atajos de teclado, hechizos y profesiones guardado en SavedVariables.
 - `/ff debug`: grabador de eventos de pesca y botín para analizar la picada.
+- Registro de capturas siempre activo: qué se pesca en cada mapa y en qué puntos, aunque la compartición esté desactivada. `/ff stats` muestra las capturas pendientes de compartir.
 
 ## [0.0.1] - 2026-11-12
 

@@ -14,6 +14,8 @@ local L = {
     MSG_HELP_HINT = "Type /ff help to see the available commands.",
     MSG_VERSION = "Version %s.",
     VERSION_UNKNOWN = "unknown",
+    SLASH_HELP_STATS = "Show how many catches are recorded and not yet shared.",
+    MSG_STATS = "Catches recorded and not yet shared: %d.",
     MSG_DATA_NEWER = "Your saved data comes from a newer version of FishForever. It will not be modified; please update the addon.",
 
     MSG_DIAG_IN_COMBAT = "The diagnostic cannot run in combat. Try again after combat.",

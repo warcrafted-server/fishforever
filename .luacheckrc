@@ -11,6 +11,8 @@ globals = {
 }
 
 read_globals = {
+    "time",
+    "LootSlotHasItem",
     "CreateFrame",
     "GetLocale",
     "C_AddOns",

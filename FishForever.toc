@@ -19,4 +19,5 @@ Core/Log.lua
 Core/Slash.lua
 Data/Defaults.lua
 Core/SavedVars.lua
+Modules/Recorder.lua
 Core/Diag.lua

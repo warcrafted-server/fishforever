@@ -33,6 +33,9 @@ ns.defaults = {
         pools = {},
         -- catches[mapID][itemID] = { total = n, shared = n }; pending = total - shared
         catches = {},
+        -- spots["<mapID>:<x>:<y>"] = { mapID, x, y, catches, firstSeen, lastSeen, shared }
+        -- where the player caught something; pool detection comes later.
+        spots = {},
     },
 
     settings = {
