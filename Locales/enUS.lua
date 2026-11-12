@@ -56,6 +56,14 @@ local L = {
     MSG_SOUND_OFF = "Sound boost off.",
     MSG_MINIMAP_ON = "Minimap button shown.",
     MSG_MINIMAP_OFF = "Minimap button hidden.",
+    CONSENT_TITLE = "FishForever - Privacy",
+    CONSENT_TEXT = "FishForever shares your fishing finds with your group and guild so pool and catch data is more accurate. It benefits everyone. You can turn it off in Options.",
+    CONSENT_OK = "Got it",
+    CONSENT_OPTIONS = "Options",
+    CONSENT_SHARE_GROUP = "Share with my group",
+    CONSENT_SHARE_GUILD = "Share with my guild",
+    CONSENT_NOTE = "Only pool locations, what is caught and where, and counts. Never your character name.",
+    SLASH_HELP_PRIVACY = "Show the privacy notice and sharing options.",
 }
 
 setmetatable(L, {

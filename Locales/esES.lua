@@ -63,6 +63,14 @@ local translations = {
     MSG_SOUND_OFF = "Realce de sonido desactivado.",
     MSG_MINIMAP_ON = "Botón del minimapa mostrado.",
     MSG_MINIMAP_OFF = "Botón del minimapa oculto.",
+    CONSENT_TITLE = "FishForever - Privacidad",
+    CONSENT_TEXT = "FishForever comparte tus hallazgos de pesca con tu grupo y hermandad para que los datos de bancos y capturas sean más precisos. Nos beneficia a todos. Puedes desactivarlo en Opciones.",
+    CONSENT_OK = "Entendido",
+    CONSENT_OPTIONS = "Opciones",
+    CONSENT_SHARE_GROUP = "Compartir con mi grupo",
+    CONSENT_SHARE_GUILD = "Compartir con mi hermandad",
+    CONSENT_NOTE = "Solo ubicaciones de bancos, qué se pesca y dónde, y recuentos. Nunca el nombre de tu personaje.",
+    SLASH_HELP_PRIVACY = "Muestra el aviso de privacidad y las opciones de compartir.",
 }
 
 for key, value in pairs(translations) do
