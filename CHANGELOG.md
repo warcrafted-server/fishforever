@@ -13,6 +13,9 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 - `/ff diag`: diagnóstico de API, CVars, atajos de teclado, hechizos y profesiones guardado en SavedVariables.
 - `/ff debug`: grabador de eventos de pesca y botín para analizar la picada.
 - Registro de capturas siempre activo: qué se pesca en cada mapa y en qué puntos, aunque la compartición esté desactivada. `/ff stats` muestra las capturas pendientes de compartir.
+- Modo pesca (`/ff fish` o clic derecho en el botón): equipa la caña de las bolsas y devuelve el arma y el escudo anteriores; en combate se aplaza hasta salir de él.
+- Botón flotador seguro: una pulsación lanza la caña y, con el corcho en el agua, la misma tecla lo recoge (atajo en Accesorios > FishForever). Anillo de tiempo verde, ámbar y rojo, y aviso de captura o pez escapado. `/ff button` y `/ff lock`.
+- Realce de sonido al pescar (efectos al máximo, música y ambiente bajados) para oír la picada, ya que el cliente no la notifica; se restaura al dejar de pescar. `/ff sound` lo activa o desactiva.
 
 ## [0.0.1] - 2026-11-12
 

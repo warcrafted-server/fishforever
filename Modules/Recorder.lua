@@ -35,7 +35,7 @@ local function spellName(id)
     end
 end
 
-local function isFishingSpell(spellID)
+function ns.IsFishingSpell(spellID)
     if isSecret(spellID) then
         return false
     end
@@ -169,7 +169,7 @@ function Recorder:PendingCount()
 end
 
 ns:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START", function(_, _, unit, _, spellID)
-    if unit == "player" and isFishingSpell(spellID) then
+    if unit == "player" and ns.IsFishingSpell(spellID) then
         channeling = true
     end
 end)

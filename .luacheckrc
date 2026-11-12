@@ -11,6 +11,16 @@ globals = {
 }
 
 read_globals = {
+    "C_Item",
+    "ERR_FISH_ESCAPED",
+    "IsShiftKeyDown",
+    "GameTooltip",
+    "ClearOverrideBindings",
+    "SetOverrideBinding",
+    "SetCVar",
+    "Enum",
+    "NUM_BAG_SLOTS",
+    "C_Container",
     "time",
     "LootSlotHasItem",
     "CreateFrame",
