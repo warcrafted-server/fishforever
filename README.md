@@ -37,8 +37,8 @@ FishForever compartirá con tu grupo y hermandad **solo datos no personales**: c
 
 ## Créditos y licencia
 
-**FishForever** está desarrollado y mantenido por **warcrafted**.
-Copyright (C) 2026 warcrafted.
+**FishForever** está desarrollado y mantenido por **WarCrafted**.
+Copyright (C) 2026 WarCrafted.
 
 Licencia [WNCL-1.0](LICENSE): puedes usarlo, estudiarlo, modificarlo y compartirlo gratis con fines no comerciales. Venderlo o cualquier uso comercial requiere permiso por escrito.
 

@@ -37,8 +37,8 @@ FishForever will share **only non-personal data** with your group and guild: poo
 
 ## Credits and license
 
-**FishForever** is developed and maintained by **warcrafted**.
-Copyright (C) 2026 warcrafted.
+**FishForever** is developed and maintained by **WarCrafted**.
+Copyright (C) 2026 WarCrafted.
 
 Licensed under [WNCL-1.0](LICENSE): free to use, study, modify and share for non-commercial purposes. Selling or any commercial use requires written permission.
 
