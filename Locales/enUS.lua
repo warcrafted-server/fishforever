@@ -143,6 +143,23 @@ local L = {
     MSG_OPTIONS_UNAVAILABLE = "The options panel is not available on this client.",
     MSG_OPTIONS_HINT = "Open Options > AddOns > FishForever.",
     SLASH_HELP_OPTIONS = "Open the options panel.",
+    ADVISOR_LINE = "Fishing %s · %s",
+    ADVISOR_SKILL = "Fishing %d/%d",
+    ADVISOR_NO_SKILL = "You have not learned Fishing.",
+    ADVISOR_NOT_LEARNED = "not learned",
+    ADVISOR_ZONE_UNKNOWN = "%s: no data for this zone.",
+    ADVISOR_ZONE_TOO_LOW = "%s: you need Fishing %d.",
+    ADVISOR_ZONE_ESCAPES = "%s: some fish escape until %d.",
+    ADVISOR_ZONE_CLEAN = "%s: no fish escape.",
+    ADVISOR_SUGGEST_CLEAN = "No escapes: %s",
+    ADVISOR_SUGGEST_NEXT = "Next zones: %s",
+    ADVISOR_SUGGEST_ENTRY = "%s (%d)",
+    ADVISOR_WARN_TOO_LOW = "You cannot fish in %s yet: you need Fishing %d.",
+    ADVISOR_WARN_TRAIN = "Your Fishing is close to its maximum (%d). Visit a fishing trainer.",
+    SLASH_HELP_ZONE = "Show the fishing skill advice for this zone.",
+    OPT_SEC_ADVISOR = "Advisor",
+    OPT_ADVISOR_WARN = "Show fishing advice",
+    OPT_ADVISOR_WARN_TIP = "Warn when you cannot fish in the current zone and remind you to train.",
 }
 
 setmetatable(L, {

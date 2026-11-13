@@ -12,6 +12,8 @@ local CARD_HEIGHT = 54
 local CARD_GAP = 6
 local LINE_GAP = 8
 local LINE_HEIGHT = 16
+local ADVISOR_LINE_GAP = 2
+local ADVISOR_LINE_HEIGHT = 14
 local HEADER_GAP = 12
 local HEADER_HEIGHT = 16
 local SEPARATOR_GAP = 4
@@ -27,7 +29,8 @@ local CONFIRM_SECONDS = 3
 local FALLBACK_ICON = 136245
 
 local LINE_Y = CARD_HEIGHT + LINE_GAP
-local HEADER_Y = LINE_Y + LINE_HEIGHT + HEADER_GAP
+local ADVISOR_Y = LINE_Y + LINE_HEIGHT + ADVISOR_LINE_GAP
+local HEADER_Y = ADVISOR_Y + ADVISOR_LINE_HEIGHT + HEADER_GAP
 local SEPARATOR_Y = HEADER_Y + HEADER_HEIGHT + SEPARATOR_GAP
 local ROWS_Y = SEPARATOR_Y + 1 + ROWS_GAP
 
@@ -39,7 +42,7 @@ local QUALITY_HEX = { "9d9d9d", "ffffff", "1eff00", "0070dd", "a335ee", "ff8000"
 
 local frame, content
 local cards = {}
-local compactLine, headerText, separator
+local compactLine, advisorLine, headerText, separator
 local itemRows = {}
 local emptyText, moreText
 local resetButton, resetLabel
@@ -275,6 +278,7 @@ local function layout()
         cards[index].frame:SetWidth(cardWidth)
     end
     compactLine:SetWidth(width)
+    advisorLine:SetWidth(width)
     separator:SetWidth(width)
     emptyText:SetWidth(width)
     for index = 1, #itemRows do
@@ -345,6 +349,8 @@ local function refresh()
     cards[3].value:SetText(casts > 0 and string.format("%d%%", math.floor(catches / casts * 100 + 0.5)) or "-")
     cards[4].value:SetText(goldPerHour)
     compactLine:SetText(L.STATS_LINE:format(formatTime(activeTime), casts, escapes, formatMoney(value)))
+    local advisor = ns.modules.Advisor
+    advisorLine:SetText(advisor and advisor:StatusLine() or "")
 
     local items = data and data.items or {}
     local list = {}
@@ -456,6 +462,10 @@ local function buildContent()
     compactLine = createText(content, "GameFontHighlightSmall", "small", palette.text)
     compactLine:SetPoint("TOPLEFT", content, "TOPLEFT", 0, -LINE_Y)
     compactLine:SetText("")
+
+    advisorLine = createText(content, "GameFontHighlightSmall", "small", palette.textDim)
+    advisorLine:SetPoint("TOPLEFT", content, "TOPLEFT", 0, -ADVISOR_Y)
+    advisorLine:SetText("")
 
     headerText = createText(content, "GameFontNormal", "label", palette.title)
     headerText:SetPoint("TOPLEFT", content, "TOPLEFT", 0, -HEADER_Y)

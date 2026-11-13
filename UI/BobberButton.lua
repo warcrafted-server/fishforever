@@ -321,6 +321,9 @@ function ns.FishingModeChanged(active)
     if active and not boundKey() then
         ns:Print(L.TIP_NO_KEY)
     end
+    if ns.modules.Advisor then
+        pcall(ns.modules.Advisor.OnFishingMode, ns.modules.Advisor, active)
+    end
 end
 
 ns:RegisterEvent("PLAYER_LOGIN", function()

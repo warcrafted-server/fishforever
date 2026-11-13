@@ -134,6 +134,9 @@ local function registerPanel()
         return string.format("%d s", math.floor(tonumber(value) or 0))
     end)
 
+    addHeader(layout, "OPT_SEC_ADVISOR")
+    addCheckbox(newCategory, "FishForever_AdvisorWarn", "warn", settings.advisor, true, "OPT_ADVISOR_WARN", "OPT_ADVISOR_WARN_TIP")
+
     addHeader(layout, "OPT_SEC_BAGS")
     addCheckbox(newCategory, "FishForever_BagsWarn", "warn", settings.bags, true, "OPT_BAGS_WARN", "OPT_BAGS_WARN_TIP")
     addSlider(newCategory, "FishForever_BagsThreshold", "threshold", settings.bags, 5, "OPT_BAGS_THRESHOLD", "OPT_BAGS_THRESHOLD_TIP", 1, 20, 1, function(value)

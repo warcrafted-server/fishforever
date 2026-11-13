@@ -80,6 +80,9 @@ ns.defaults = {
         session = {
             resetOnLogin = true,
         },
+        advisor = {
+            warn = true,
+        },
     },
 }
 

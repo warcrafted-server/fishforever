@@ -150,6 +150,23 @@ local translations = {
     MSG_OPTIONS_UNAVAILABLE = "El panel de opciones no está disponible en este cliente.",
     MSG_OPTIONS_HINT = "Abre Opciones > Accesorios > FishForever.",
     SLASH_HELP_OPTIONS = "Abre el panel de opciones.",
+    ADVISOR_LINE = "Pesca %s · %s",
+    ADVISOR_SKILL = "Pesca %d/%d",
+    ADVISOR_NO_SKILL = "No has aprendido Pesca.",
+    ADVISOR_NOT_LEARNED = "sin aprender",
+    ADVISOR_ZONE_UNKNOWN = "%s: sin datos para esta zona.",
+    ADVISOR_ZONE_TOO_LOW = "%s: necesitas Pesca %d.",
+    ADVISOR_ZONE_ESCAPES = "%s: se escapa algún pez hasta %d.",
+    ADVISOR_ZONE_CLEAN = "%s: no se escapa ningún pez.",
+    ADVISOR_SUGGEST_CLEAN = "Sin escapes: %s",
+    ADVISOR_SUGGEST_NEXT = "Siguientes zonas: %s",
+    ADVISOR_SUGGEST_ENTRY = "%s (%d)",
+    ADVISOR_WARN_TOO_LOW = "Todavía no puedes pescar en %s: necesitas Pesca %d.",
+    ADVISOR_WARN_TRAIN = "Tu Pesca está cerca de su máximo (%d). Visita a un instructor de pesca.",
+    SLASH_HELP_ZONE = "Muestra el consejo de pesca para esta zona.",
+    OPT_SEC_ADVISOR = "Asesor",
+    OPT_ADVISOR_WARN = "Mostrar consejos de pesca",
+    OPT_ADVISOR_WARN_TIP = "Avisa cuando no puedes pescar en la zona actual y recuerda entrenar.",
 }
 
 for key, value in pairs(translations) do
