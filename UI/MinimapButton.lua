@@ -97,6 +97,7 @@ local function showTooltip(owner)
     GameTooltip:AddLine(L.TIP_MINIMAP_LEFT, 1, 1, 1, true)
     GameTooltip:AddLine(L.TIP_MINIMAP_RIGHT, 1, 1, 1, true)
     GameTooltip:AddLine(L.TIP_MINIMAP_SHIFT, 1, 1, 1, true)
+    GameTooltip:AddLine(L.TIP_MINIMAP_OPTIONS, 1, 1, 1, true)
     GameTooltip:AddLine(L.TIP_MINIMAP_DRAG, palette.textDim[1], palette.textDim[2], palette.textDim[3], true)
 
     local active = ns.modules.FishingMode and ns.modules.FishingMode:IsActive()
@@ -151,9 +152,14 @@ local function createButton()
         end
     end)
     b:SetScript("OnClick", function(_, mouseButton)
-        if mouseButton == "RightButton" then
+        local shift = type(IsShiftKeyDown) == "function" and IsShiftKeyDown()
+        if mouseButton == "RightButton" and shift then
+            if ns.UI and ns.UI.Options then
+                ns.UI.Options.Open()
+            end
+        elseif mouseButton == "RightButton" then
             ns.modules.FishingMode:Toggle()
-        elseif type(IsShiftKeyDown) == "function" and IsShiftKeyDown() then
+        elseif shift then
             if ns.UI and ns.UI.StatsWindow then
                 ns.UI.StatsWindow:Toggle()
             end

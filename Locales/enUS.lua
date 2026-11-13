@@ -47,6 +47,7 @@ local L = {
     TIP_MINIMAP_LEFT = "Left click: show or hide the bobber button.",
     TIP_MINIMAP_RIGHT = "Right click: toggle fishing mode.",
     TIP_MINIMAP_SHIFT = "Shift + left click: session stats.",
+    TIP_MINIMAP_OPTIONS = "Shift + right click: options.",
     TIP_MINIMAP_DRAG = "Drag: move around the minimap.",
     STATUS_MINIMAP_ON = "Fishing mode: on.",
     STATUS_MINIMAP_OFF = "Fishing mode: off.",

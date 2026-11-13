@@ -54,6 +54,7 @@ local translations = {
     TIP_MINIMAP_LEFT = "Clic izquierdo: muestra u oculta el botón flotador.",
     TIP_MINIMAP_RIGHT = "Clic derecho: activa o desactiva el modo pesca.",
     TIP_MINIMAP_SHIFT = "Mayús + clic izquierdo: estadísticas de la sesión.",
+    TIP_MINIMAP_OPTIONS = "Mayús + clic derecho: opciones.",
     TIP_MINIMAP_DRAG = "Arrastrar: mover alrededor del minimapa.",
     STATUS_MINIMAP_ON = "Modo pesca: activado.",
     STATUS_MINIMAP_OFF = "Modo pesca: desactivado.",

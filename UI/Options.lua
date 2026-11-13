@@ -176,7 +176,7 @@ ns:RegisterEvent("PLAYER_LOGIN", function()
     pcall(registerPanel)
 end)
 
-ns:RegisterSlashCommand("options", function()
+local function openOptions()
     if ns.readOnlyData or not settingsReady() then
         ns:Print(L.MSG_OPTIONS_UNAVAILABLE)
         return
@@ -193,4 +193,8 @@ ns:RegisterSlashCommand("options", function()
         end
     end
     ns:Print(L.MSG_OPTIONS_HINT)
-end, "SLASH_HELP_OPTIONS")
+end
+
+ns.UI.Options = { Open = openOptions }
+
+ns:RegisterSlashCommand("options", openOptions, "SLASH_HELP_OPTIONS")
