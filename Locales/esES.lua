@@ -74,10 +74,11 @@ local translations = {
     SLASH_HELP_PRIVACY = "Muestra el aviso de privacidad y las opciones de compartir.",
 
     STATS_TITLE = "Sesión de pesca",
-    STATS_LINE = "Tiempo %s  ·  Lanzamientos %d  ·  Escapados %d",
+    STATS_LINE = "Tiempo %s  ·  Lanzamientos %d  ·  Escapados %d  ·  Valor %s",
     STATS_CATCHES = "Capturas",
     STATS_PER_HOUR = "Capturas por hora",
     STATS_SUCCESS = "Éxito",
+    STATS_GOLD_HOUR = "Oro por hora",
     STATS_ITEMS = "Pescado",
     STATS_MORE = "+%d más",
     STATS_EMPTY = "Aún no has pescado nada.",
@@ -93,6 +94,8 @@ local translations = {
     MSG_LURE_EXPIRED = "Se acabó el cebo. Pulsa %s para poner otro.",
     MSG_LURE_EXPIRED_CLICK = "Se acabó el cebo. Haz clic en el botón del cebo para poner otro.",
     MSG_LURE_NONE_LEFT = "Se acabó el cebo y no te quedan más.",
+    MSG_BAGS_FULL = "Tienes las bolsas llenas: la próxima captura no cabrá.",
+    MSG_BAGS_LOW = "Huecos libres en las bolsas: %d.",
 }
 
 for key, value in pairs(translations) do

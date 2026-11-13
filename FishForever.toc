@@ -23,6 +23,7 @@ Core/SavedVars.lua
 Modules/Recorder.lua
 Modules/Session.lua
 Modules/Lure.lua
+Modules/Bags.lua
 Modules/FishingMode.lua
 Modules/SoundBoost.lua
 UI/Theme.lua
