@@ -11,6 +11,9 @@ globals = {
 }
 
 read_globals = {
+    "CreateSettingsListSectionHeaderInitializer",
+    "MinimalSliderWithSteppersMixin",
+    "Settings",
     "GetCoinTextureString",
     "C_CurrencyInfo",
     "UIErrorsFrame",

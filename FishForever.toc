@@ -31,4 +31,5 @@ UI/BobberButton.lua
 UI/LureButton.lua
 UI/MinimapButton.lua
 UI/StatsWindow.lua
+UI/Options.lua
 Core/Diag.lua
