@@ -11,6 +11,7 @@ globals = {
 }
 
 read_globals = {
+    "C_Texture",
     "GetBindingText",
     "PlaySound",
     "SOUNDKIT",
