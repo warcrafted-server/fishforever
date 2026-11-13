@@ -193,14 +193,36 @@ function MinimapButton:Refresh()
     end
 end
 
+function MinimapButton:SetHidden(hide)
+    hide = hide and true or false
+    local settings = getSettings()
+    if settings and not ns.readOnlyData then
+        settings.hide = hide
+    end
+    if not button then
+        return
+    end
+    if hide then
+        button:Hide()
+    else
+        button:Show()
+        updatePosition()
+    end
+end
+
 function MinimapButton:Toggle()
     local settings = getSettings()
     if not settings then
         return
     end
-    settings.hide = not settings.hide
-    self:Refresh()
-    ns:Print(settings.hide and L.MSG_MINIMAP_OFF or L.MSG_MINIMAP_ON)
+    local hide
+    if ns.readOnlyData then
+        hide = (button and button:IsShown()) and true or false
+    else
+        hide = not settings.hide
+    end
+    self:SetHidden(hide)
+    ns:Print(hide and L.MSG_MINIMAP_OFF or L.MSG_MINIMAP_ON)
 end
 
 ns:RegisterEvent("PLAYER_LOGIN", function()

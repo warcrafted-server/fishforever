@@ -258,6 +258,20 @@ function BobberButton:SetShown(shown)
     button:SetShown(shown)
 end
 
+function BobberButton:ApplyScale()
+    if not button then
+        return false
+    end
+    if InCombatLockdown() then
+        ns:Print(L.MSG_NOT_IN_COMBAT)
+        return false
+    end
+    local cfg = ns.db and ns.db.settings and ns.db.settings.button
+    local scale = cfg and cfg.scale or 1
+    button:SetScale(1.15 * (scale or 1))
+    return true
+end
+
 -- Called by FishingMode; nudges players who have not bound the key yet.
 function ns.FishingModeChanged(active)
     if active and not boundKey() then

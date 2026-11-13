@@ -51,6 +51,15 @@ ns.defaults = {
         alert = {
             sound = true,
             flash = true,
+            dim = 30,
+        },
+        bags = {
+            warn = true,
+            threshold = 5,
+        },
+        lure = {
+            warn = true,
+            sound = true,
         },
         minimap = {
             hide = false,

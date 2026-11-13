@@ -324,6 +324,11 @@ function ns.LureChanged()
 end
 
 function ns.LureExpired()
+    local settings = ns.db and ns.db.settings
+    local lureSettings = settings and settings.lure
+    if lureSettings and lureSettings.warn == false then
+        return
+    end
     local lure = ns.modules.Lure
     local itemID = lure and lure:FindBest()
     if not itemID then
@@ -336,7 +341,8 @@ function ns.LureExpired()
             ns:Print(L.MSG_LURE_EXPIRED_CLICK)
         end
     end
-    if type(PlaySound) == "function" and SOUNDKIT and SOUNDKIT.RAID_WARNING ~= nil then
+    if lureSettings and lureSettings.sound == true
+        and type(PlaySound) == "function" and SOUNDKIT and SOUNDKIT.RAID_WARNING ~= nil then
         pcall(PlaySound, SOUNDKIT.RAID_WARNING)
     end
 end

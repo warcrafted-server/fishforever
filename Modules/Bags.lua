@@ -50,10 +50,19 @@ ns:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START", function(_, _, unit, _, spellID
     if not ns.IsFishingSpell(spellID) then
         return
     end
+    local settings = ns.db and ns.db.settings
+    local bags = settings and settings.bags
+    if not (bags and bags.warn == true) then
+        return
+    end
+    local threshold = bags.threshold
+    if type(threshold) ~= "number" then
+        threshold = 5
+    end
     local free = Bags:FreeSlots()
     if free == 0 then
         warn("full", ns.L.MSG_BAGS_FULL, 1, 0.54, 0.24)
-    elseif free <= 5 then
+    elseif free <= threshold then
         warn("low", ns.L.MSG_BAGS_LOW:format(free), 0.95, 0.83, 0.23)
     end
 end)

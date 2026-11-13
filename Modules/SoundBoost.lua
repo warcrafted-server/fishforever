@@ -11,10 +11,7 @@ local BOOST = {
     Sound_EnableSFX = "1",
     Sound_SFXVolume = "1.0",
 }
-local DIM = {
-    Sound_MusicVolume = 0.3,
-    Sound_AmbienceVolume = 0.3,
-}
+local DIM_CVARS = { "Sound_MusicVolume", "Sound_AmbienceVolume" }
 
 -- Keep the boost between consecutive casts instead of flickering the volume.
 local RESTORE_DELAY = 10
@@ -53,7 +50,15 @@ function SoundBoost:Start()
         saved[name] = getCVar(name)
         setCVar(name, value)
     end
-    for name, factor in pairs(DIM) do
+    local percent = tonumber(alert.dim) or 30
+    local factor = percent / 100
+    if factor < 0 then
+        factor = 0
+    elseif factor > 1 then
+        factor = 1
+    end
+    for index = 1, #DIM_CVARS do
+        local name = DIM_CVARS[index]
         local current = getCVar(name)
         saved[name] = current
         local number = tonumber(current)
