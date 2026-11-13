@@ -341,7 +341,12 @@ local function refresh()
 
     local goldPerHour = "-"
     if activeTime >= 60 and value > 0 then
-        goldPerHour = formatMoney(value / activeTime * 3600, true)
+        local perHour = math.floor(value / activeTime * 3600)
+        -- The card is narrow: from 1 gold on, copper is noise and overflows.
+        if perHour >= 10000 then
+            perHour = perHour - perHour % 100
+        end
+        goldPerHour = formatMoney(perHour, true)
     end
 
     cards[1].value:SetText(tostring(catches))
