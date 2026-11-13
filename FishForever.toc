@@ -19,6 +19,7 @@ Core/Init.lua
 Core/Log.lua
 Core/Slash.lua
 Data/Defaults.lua
+Data/Zones.lua
 Core/SavedVars.lua
 Modules/Recorder.lua
 Modules/Session.lua
