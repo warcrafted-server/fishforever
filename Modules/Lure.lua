@@ -119,12 +119,18 @@ local function rescan()
     end
 end
 
-local function onPoll()
-    local hasLure = Lure:GetActive()
-    local was = lastHasLure
-    lastHasLure = hasLure
+-- A lure only "runs out" when it disappears with its last seconds on the
+-- clock; swapping weapons in and out of fishing mode also makes the main-hand
+-- enchant vanish and must not warn.
+local EXPIRY_MARGIN = 3
+local lastRemaining = 0
 
-    if was and not hasLure then
+local function onPoll()
+    local hasLure, remaining = Lure:GetActive()
+    local was, wasRemaining = lastHasLure, lastRemaining
+    lastHasLure, lastRemaining = hasLure, remaining
+
+    if was and not hasLure and wasRemaining <= EXPIRY_MARGIN then
         local fishing = ns.modules.FishingMode
         if type(fishing) == "table" and type(fishing.IsActive) == "function" and fishing:IsActive() then
             notifyExpired()

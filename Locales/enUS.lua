@@ -67,10 +67,11 @@ local L = {
     SLASH_HELP_PRIVACY = "Show the privacy notice and sharing options.",
 
     STATS_TITLE = "Fishing session",
-    STATS_LINE = "Time %s  ·  Casts %d  ·  Got away %d",
+    STATS_LINE = "Time %s  ·  Casts %d  ·  Got away %d  ·  Value %s",
     STATS_CATCHES = "Catches",
     STATS_PER_HOUR = "Catches per hour",
     STATS_SUCCESS = "Success",
+    STATS_GOLD_HOUR = "Gold per hour",
     STATS_ITEMS = "Caught",
     STATS_MORE = "+%d more",
     STATS_EMPTY = "Nothing caught yet.",
@@ -86,6 +87,8 @@ local L = {
     MSG_LURE_EXPIRED = "Your lure ran out. Press %s to apply another.",
     MSG_LURE_EXPIRED_CLICK = "Your lure ran out. Click the lure button to apply another.",
     MSG_LURE_NONE_LEFT = "Your lure ran out and you have no more lures.",
+    MSG_BAGS_FULL = "Your bags are full: the next catch will not fit.",
+    MSG_BAGS_LOW = "Bag space left: %d.",
 }
 
 setmetatable(L, {

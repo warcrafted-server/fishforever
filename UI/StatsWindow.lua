@@ -6,7 +6,7 @@ local StatsWindow = {}
 ns.UI.StatsWindow = StatsWindow
 
 local FRAME_NAME = "FishForeverStats"
-local WIDTH = 340
+local WIDTH = 380
 local PADDING = 12
 local CARD_HEIGHT = 54
 local CARD_GAP = 6
@@ -94,6 +94,79 @@ local function itemIcon(itemID)
         end
     end
     return nil
+end
+
+local function pack(...)
+    return { n = select("#", ...), ... }
+end
+
+local function itemSellPrice(itemID)
+    if not (C_Item and type(C_Item.GetItemInfo) == "function") then
+        return nil
+    end
+    local values = pack(pcall(C_Item.GetItemInfo, itemID))
+    if not values[1] then
+        return nil
+    end
+    local sellPrice = values[12]
+    if not isSecret(sellPrice) and type(sellPrice) == "number" and sellPrice >= 0 then
+        return sellPrice
+    end
+    if type(C_Item.RequestLoadItemDataByID) == "function" then
+        pcall(C_Item.RequestLoadItemDataByID, itemID)
+    end
+    return nil
+end
+
+local function moneyText(copper)
+    copper = math.max(0, math.floor(copper or 0))
+    local gold = math.floor(copper / 10000)
+    local silver = math.floor((copper % 10000) / 100)
+    local rest = copper % 100
+    local parts = {}
+    if gold > 0 then
+        parts[#parts + 1] = gold .. "g"
+    end
+    if silver > 0 then
+        parts[#parts + 1] = silver .. "s"
+    end
+    if rest > 0 or #parts == 0 then
+        parts[#parts + 1] = rest .. "c"
+    end
+    return table.concat(parts, " ")
+end
+
+local function formatMoney(copper, plain)
+    copper = math.max(0, math.floor(copper or 0))
+    if not plain then
+        if C_CurrencyInfo and type(C_CurrencyInfo.GetCoinTextureString) == "function" then
+            local ok, text = pcall(C_CurrencyInfo.GetCoinTextureString, copper)
+            if ok and type(text) == "string" and text ~= "" then
+                return text
+            end
+        end
+        if type(GetCoinTextureString) == "function" then
+            local ok, text = pcall(GetCoinTextureString, copper)
+            if ok and type(text) == "string" and text ~= "" then
+                return text
+            end
+        end
+    end
+    return moneyText(copper)
+end
+
+local function sessionValue(data)
+    local total = 0
+    local items = data and data.items or {}
+    for itemID, entry in pairs(items) do
+        if type(entry) == "table" and type(entry.count) == "number" and entry.count > 0 then
+            local price = itemSellPrice(itemID)
+            if price then
+                total = total + entry.count * price
+            end
+        end
+    end
+    return total
 end
 
 local function inCombat()
@@ -197,7 +270,7 @@ end
 
 local function layout()
     local width = contentWidth()
-    local cardWidth = (width - CARD_GAP * 2) / 3
+    local cardWidth = (width - CARD_GAP * 3) / 4
     for index = 1, #cards do
         cards[index].frame:SetWidth(cardWidth)
     end
@@ -259,11 +332,19 @@ local function refresh()
     local catches = data and data.catches or 0
     local escapes = data and data.escapes or 0
     local perHour = session and session:CatchesPerHour() or 0
+    local activeTime = session and session:ActiveTime() or 0
+    local value = sessionValue(data)
+
+    local goldPerHour = "-"
+    if activeTime >= 60 and value > 0 then
+        goldPerHour = formatMoney(value / activeTime * 3600, true)
+    end
 
     cards[1].value:SetText(tostring(catches))
     cards[2].value:SetText(perHour ~= 0 and string.format("%.1f", perHour) or "-")
     cards[3].value:SetText(casts > 0 and string.format("%d%%", math.floor(catches / casts * 100 + 0.5)) or "-")
-    compactLine:SetText(L.STATS_LINE:format(formatTime(session and session:ActiveTime() or 0), casts, escapes))
+    cards[4].value:SetText(goldPerHour)
+    compactLine:SetText(L.STATS_LINE:format(formatTime(activeTime), casts, escapes, formatMoney(value)))
 
     local items = data and data.items or {}
     local list = {}
@@ -347,8 +428,8 @@ local function refresh()
 end
 
 local function buildContent()
-    local labels = { L.STATS_CATCHES, L.STATS_PER_HOUR, L.STATS_SUCCESS }
-    for index = 1, 3 do
+    local labels = { L.STATS_CATCHES, L.STATS_PER_HOUR, L.STATS_SUCCESS, L.STATS_GOLD_HOUR }
+    for index = 1, 4 do
         local card = CreateFrame("Frame", nil, content)
         card:SetHeight(CARD_HEIGHT)
         if index == 1 then

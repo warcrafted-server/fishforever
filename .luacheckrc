@@ -11,6 +11,11 @@ globals = {
 }
 
 read_globals = {
+    "GetCoinTextureString",
+    "C_CurrencyInfo",
+    "UIErrorsFrame",
+    "GetItemInfo",
+    "GetMoney",
     "GameFontDisable",
     "GameFontHighlightSmall",
     "GameFontNormalHuge",
