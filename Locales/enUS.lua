@@ -79,6 +79,16 @@ local L = {
     STATS_RESET = "Reset",
     STATS_RESET_CONFIRM = "Sure?",
     STATS_CLOSE = "x",
+    BINDING_LURE = "Apply lure",
+    TIP_LURE_BONUS = "+%d fishing",
+    TIP_LURE_COUNT = "In bags: %d",
+    TIP_LURE_NONE = "No lures in your bags.",
+    TIP_LURE_LEFT = "Lure on the pole: %s left.",
+    TIP_LURE_APPLY = "Click or key: apply the lure to the pole.",
+    TIP_LURE_NO_KEY = "Bind a key in Key Bindings > AddOns > FishForever > Apply lure.",
+    MSG_LURE_EXPIRED = "Your lure ran out. Press %s to apply another.",
+    MSG_LURE_EXPIRED_CLICK = "Your lure ran out. Click the lure button to apply another.",
+    MSG_LURE_NONE_LEFT = "Your lure ran out and you have no more lures.",
 }
 
 setmetatable(L, {

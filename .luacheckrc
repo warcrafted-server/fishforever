@@ -11,6 +11,10 @@ globals = {
 }
 
 read_globals = {
+    "GetBindingText",
+    "PlaySound",
+    "SOUNDKIT",
+    "GetWeaponEnchantInfo",
     "GetCursorPosition",
     "Minimap",
     "LootSlot",
