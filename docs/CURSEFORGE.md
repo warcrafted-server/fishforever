@@ -17,6 +17,7 @@ Paste into the project description: English first, then Spanish. Updated on ever
 - **Loot straight to your bags,** no loot window clicking.
 - **Hear the bite:** while fishing, sound effects go up and music and ambience go down, then everything returns to your settings.
 - **Floating button** with a time ring (green, amber, red), your loot key and catch or escaped messages. Show or hide it with a left click on the minimap button. Clicking it casts; looting needs the key or a right click on the bobber.
+- **Session stats** (`/ff stats` or Shift + left click on the minimap button): time fishing, catches per hour, success rate and what you caught, coloured by rarity.
 - **Catch log:** what you catch and where is saved locally. Nothing is sent anywhere.
 - English and Spanish.
 
@@ -40,6 +41,7 @@ Free for non-commercial use under WNCL-1.0. Source: https://github.com/warcrafte
 - **El botín va directo a las bolsas,** sin hacer clic en la ventana de botín.
 - **Oye la picada:** al pescar suben los efectos de sonido y bajan la música y el ambiente; después todo vuelve a tus ajustes.
 - **Botón flotador** con anillo de tiempo (verde, ámbar y rojo), tu tecla para recoger y aviso de captura o de pez escapado. Se muestra u oculta con clic izquierdo en el botón del minimapa. Un clic en él lanza; para recoger, la tecla o clic derecho sobre el corcho.
+- **Estadísticas de la sesión** (`/ff stats` o Mayús + clic izquierdo en el botón del minimapa): tiempo pescando, capturas por hora, porcentaje de éxito y lo pescado, con el color de su rareza.
 - **Registro de capturas:** qué pescas y dónde se guarda en tu equipo. No se envía nada a ningún sitio.
 - Español e inglés.
 

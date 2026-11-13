@@ -4,7 +4,7 @@ La publicación es diaria y escalonada: una novedad probada en el juego por entr
 
 ## Alta prioridad
 
-- Estadísticas de sesión en una ventana (capturas por hora, rarezas, tiempo pescando).
+- Caja de aparejos: aplicar el cebo con una pulsación y temporizador del cebo.
 - Detectar bancos de peces (ahora solo se guardan los puntos donde se pesca).
 
 ## Media prioridad
