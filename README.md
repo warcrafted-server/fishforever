@@ -15,7 +15,9 @@ Addon de pesca para **WoW Forever**: botón flotador de un toque, caja de aparej
 - **Botón flotador** con anillo de tiempo y aviso de captura o pez escapado, y **botón en el minimapa**.
 - **Registro local de capturas:** qué pescas y dónde.
 
-Próximamente: estadísticas de sesión, caja de aparejos, asesor de zona y mapa colaborativo de bancos. La hoja de ruta completa está en [docs/ROADMAP.md](docs/ROADMAP.md).
+- **Estadísticas de la sesión:** tiempo, capturas por hora, éxito y lo pescado por rareza.
+
+Próximamente: caja de aparejos, asesor de zona y mapa colaborativo de bancos. La hoja de ruta completa está en [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Requisitos
 
@@ -43,7 +45,7 @@ El clic izquierdo en el botón del minimapa muestra u oculta el botón flotador;
 | `/ff lock` | Bloquea o desbloquea su posición |
 | `/ff sound` | Activa o desactiva el realce de sonido |
 | `/ff minimap` | Muestra u oculta el botón del minimapa |
-| `/ff stats` | Capturas registradas |
+| `/ff stats` | Ventana de la sesión de pesca (también Mayús + clic izquierdo en el minimapa) |
 
 ## Privacidad
 

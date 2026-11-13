@@ -5,6 +5,16 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.2.0] - 2026-11-14
+
+### Añadido
+
+- Ventana de la sesión de pesca (`/ff stats` o Mayús + clic izquierdo en el botón del minimapa): tiempo pescando, lanzamientos, capturas, escapados, capturas por hora, porcentaje de éxito y lista de lo pescado con icono y color de rareza. Se mantiene al recargar la interfaz y empieza de cero al entrar al juego; «Reiniciar» pide confirmación y no borra el registro de capturas.
+
+### Cambiado
+
+- `/ff stats` abre la ventana de la sesión en lugar de mostrar las capturas pendientes de compartir.
+
 ## [0.1.0] - 2026-11-13
 
 ### Añadido

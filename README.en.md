@@ -15,7 +15,9 @@ Fishing addon for **WoW Forever**: one-touch bobber button, tackle box with lure
 - **Floating button** with a time ring and catch or escaped messages, plus a **minimap button**.
 - **Local catch log:** what you catch and where.
 
-Coming soon: session stats, tackle box, zone advisor and a community map of fishing pools. See the full roadmap in [docs/ROADMAP.md](docs/ROADMAP.md).
+- **Session stats:** time, catches per hour, success rate and what you caught by rarity.
+
+Coming soon: tackle box, zone advisor and a community map of fishing pools. See the full roadmap in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Requirements
 
@@ -43,7 +45,7 @@ Left-click the minimap button to show or hide the floating button; Shift + drag 
 | `/ff lock` | Lock or unlock its position |
 | `/ff sound` | Toggle the sound boost |
 | `/ff minimap` | Show or hide the minimap button |
-| `/ff stats` | Recorded catches |
+| `/ff stats` | Fishing session window (also Shift + left click on the minimap button) |
 
 ## Privacy
 
