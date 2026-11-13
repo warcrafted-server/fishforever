@@ -15,7 +15,16 @@
 - **Botón flotador** con tres estados: reposo, lanzado y picada (parpadea y se agita).
 - **Caja de aparejos** (abanico o cajón lateral al pasar el ratón) con cada cebo y su bonus.
 - **Anillo de temporizador** alrededor del cebo activo (verde, ámbar, rojo) y resalte del cebo recomendado.
-- Identidad propia: no se copia el diseño de otros addons de pesca. El estilo visual se basará en Lorewake (pendiente).
+- Identidad propia: no se copia el diseño de otros addons de pesca.
+
+### Estilo visual
+
+Misma familia que Lorewake y FarmAdvisor (estilo Diario de mazmorras), con los tokens de la maqueta UI-4 de FarmAdvisor:
+
+- Ventana `#15100b` con borde `#5a4630`; barras `#1d160f`; paneles `#191209` con borde `#2e2418`; separadores `#2a2015`.
+- Título en mayúsculas pequeñas dorado `#e6b84a` (fuente `FRIZQT__`), etiquetas de sección `#c9a24a`, texto `#e9dfc8`, texto secundario `#a3957c`.
+- Pestañas con subrayado dorado en la activa; botón de cerrar rojo oscuro; botón principal `#6b1d12` con borde `#b8914a`.
+- Estados: correcto `#7fe08a`, falta `#ff6b62`, ámbar `#f2d43a`, naranja `#ff8a3d` (también para el anillo de temporizador verde → ámbar → rojo).
 
 ### Datos y privacidad
 

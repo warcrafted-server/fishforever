@@ -1,0 +1,76 @@
+local ADDON, ns = ...
+
+local L = {
+    ADDON_NAME = "FishForever",
+
+    SLASH_HELP_HEADER = "Available commands:",
+    SLASH_HELP_ENTRY = "  /ff %s - %s",
+    SLASH_HELP_HELP = "Show this help.",
+    SLASH_HELP_VERSION = "Show the addon version.",
+    SLASH_HELP_DIAG = "Check which client APIs are present and save the result to FishForeverDB.diag.",
+    SLASH_HELP_DEBUG = "Toggle the event recorder saved to FishForeverDB.debugLog.",
+    SLASH_HELP_FISH = "Toggle fishing mode: equip a fishing pole or restore your previous gear.",
+    SLASH_HELP_MINIMAP = "Show or hide the minimap button.",
+
+    MSG_UNKNOWN_COMMAND = "Unknown command: %s.",
+    MSG_HELP_HINT = "Type /ff help to see the available commands.",
+    MSG_VERSION = "Version %s.",
+    VERSION_UNKNOWN = "unknown",
+    SLASH_HELP_STATS = "Show how many catches are recorded and not yet shared.",
+    MSG_STATS = "Catches recorded and not yet shared: %d.",
+    MSG_DATA_NEWER = "Your saved data comes from a newer version of FishForever. It will not be modified; please update the addon.",
+
+    MSG_DIAG_IN_COMBAT = "The diagnostic cannot run in combat. Try again after combat.",
+    MSG_DIAG_SAVED = "Diagnostic saved (%d found, %d missing). Do /reload and read FishForeverDB.diag.",
+    MSG_DIAG_FAILED = "The diagnostic could not be completed. Check the chat for details.",
+    MSG_DIAG_NOT_READY = "FishForever is still loading. Try again in a moment.",
+    MSG_DEBUG_ON = "Event recording enabled. Fish a few times, then do /reload and read FishForeverDB.debugLog.",
+    MSG_DEBUG_OFF = "Event recording disabled.",
+
+    MSG_FISH_IN_COMBAT = "Fishing mode cannot change in combat. It will be applied when combat ends.",
+    MSG_FISH_NO_POLE = "No fishing pole found in your bags.",
+    MSG_FISH_ENTERED = "Fishing mode enabled.",
+    MSG_FISH_EXITED = "Fishing mode disabled.",
+    MSG_FISH_MISSING_ITEM = "Could not restore %s: it is no longer in your bags.",
+    BINDING_CAST_LOOT = "Cast / loot (one press = one action)",
+    STATUS_LOOT_KEY = "%s: loot",
+    STATUS_LOOT_MOUSE = "Right-click the bobber",
+    STATUS_CAUGHT = "Caught!",
+    STATUS_ESCAPED = "Got away",
+    TIP_CAST = "Left click or key: cast.",
+    TIP_LOOT = "While the bobber is out, the same key loots it (or right-click the bobber in the water).",
+    TIP_MODE = "Right click: toggle fishing mode (pole on / previous gear back).",
+    TIP_MOVE = "Shift + drag: move. /ff lock to lock it.",
+    TIP_NO_KEY = "Bind a key in Key Bindings > AddOns > FishForever to loot with one press.",
+    TIP_MINIMAP_LEFT = "Left click: show or hide the bobber button.",
+    TIP_MINIMAP_RIGHT = "Right click: toggle fishing mode.",
+    TIP_MINIMAP_DRAG = "Drag: move around the minimap.",
+    STATUS_MINIMAP_ON = "Fishing mode: on.",
+    STATUS_MINIMAP_OFF = "Fishing mode: off.",
+    MSG_NOT_IN_COMBAT = "That cannot be done in combat.",
+    SLASH_HELP_BUTTON = "Show or hide the bobber button.",
+    SLASH_HELP_LOCK = "Lock or unlock the bobber button position.",
+    MSG_LOCKED = "Button locked.",
+    MSG_UNLOCKED = "Button unlocked: Shift + drag to move it.",
+    SLASH_HELP_SOUND = "Turn the fishing sound boost on or off.",
+    MSG_SOUND_ON = "Sound boost on: effects up and music down while fishing so you hear the splash.",
+    MSG_SOUND_OFF = "Sound boost off.",
+    MSG_MINIMAP_ON = "Minimap button shown.",
+    MSG_MINIMAP_OFF = "Minimap button hidden.",
+    CONSENT_TITLE = "FishForever - Privacy",
+    CONSENT_TEXT = "FishForever shares your fishing finds with your group and guild so pool and catch data is more accurate. It benefits everyone. You can turn it off in Options.",
+    CONSENT_OK = "Got it",
+    CONSENT_OPTIONS = "Options",
+    CONSENT_SHARE_GROUP = "Share with my group",
+    CONSENT_SHARE_GUILD = "Share with my guild",
+    CONSENT_NOTE = "Only pool locations, what is caught and where, and counts. Never your character name.",
+    SLASH_HELP_PRIVACY = "Show the privacy notice and sharing options.",
+}
+
+setmetatable(L, {
+    __index = function(_, key)
+        return key
+    end,
+})
+
+ns.L = L
