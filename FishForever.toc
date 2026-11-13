@@ -9,6 +9,7 @@
 ## Version: @project-version@
 ## X-License: WNCL-1.0
 ## X-Website: https://github.com/warcrafted-server/fishforever
+## X-Curse-Project-ID: 1801985
 ## SavedVariables: FishForeverDB
 ## SavedVariablesPerCharacter: FishForeverCharDB
 
