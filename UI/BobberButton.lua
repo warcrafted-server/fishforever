@@ -41,8 +41,24 @@ local function setCastAction()
     button:SetAttribute("spell1", fishingSpell())
 end
 
-local function hasInteractCommand()
-    return (SecureCmdList and SecureCmdList.INTERACT ~= nil) or _G.SLASH_INTERACT1 ~= nil
+-- Short label of the first key bound to the button, or nil when unbound.
+local function boundKey()
+    local key = GetBindingKey(BINDING)
+    if not key then
+        return nil
+    end
+    if type(GetBindingText) == "function" then
+        local ok, text = pcall(GetBindingText, key)
+        if ok and type(text) == "string" and text ~= "" then
+            return text
+        end
+    end
+    return key
+end
+
+local function lootHint()
+    local key = boundKey()
+    return key and L.STATUS_LOOT_KEY:format(key) or L.STATUS_LOOT_MOUSE
 end
 
 local function setBorder(color)
@@ -64,14 +80,9 @@ local function armLoot()
     for _, key in ipairs({ GetBindingKey(BINDING) }) do
         SetOverrideBinding(button, true, key, "INTERACTTARGET")
     end
-    -- A mouse click on the button must not recast and lose the bobber: it
-    -- loots through the game's /interact command when the client has it.
-    if hasInteractCommand() then
-        button:SetAttribute("type1", "macro")
-        button:SetAttribute("macrotext1", "/interact")
-    else
-        button:SetAttribute("type1", nil)
-    end
+    -- A mouse click on the button must not recast and lose the bobber. This
+    -- client has no /interact, so only a key (or a click on the bobber) loots.
+    button:SetAttribute("type1", nil)
     bobberOut = true
 end
 
@@ -98,7 +109,7 @@ local function refresh()
         local color = Theme:TimerColor(remaining)
         cooldown:SetSwipeColor(color[1], color[2], color[3], 0.75)
         setBorder(color)
-        setStatus(L.STATUS_CAST, color)
+        setStatus(lootHint(), color)
     elseif now >= resultUntil then
         setBorder(palette.windowBorder)
         setStatus("")
@@ -118,7 +129,7 @@ local function showTooltip(self)
     GameTooltip:AddLine(L.TIP_LOOT, 1, 1, 1, true)
     GameTooltip:AddLine(L.TIP_MODE, 1, 1, 1, true)
     GameTooltip:AddLine(L.TIP_MOVE, palette.textDim[1], palette.textDim[2], palette.textDim[3], true)
-    if not GetBindingKey(BINDING) then
+    if not boundKey() then
         GameTooltip:AddLine(L.TIP_NO_KEY, palette.orange[1], palette.orange[2], palette.orange[3], true)
     end
     GameTooltip:Show()
@@ -194,6 +205,13 @@ function BobberButton:SetShown(shown)
     end
     ns.db.settings.button.shown = shown
     button:SetShown(shown)
+end
+
+-- Called by FishingMode; nudges players who have not bound the key yet.
+function ns.FishingModeChanged(active)
+    if active and not boundKey() then
+        ns:Print(L.TIP_NO_KEY)
+    end
 end
 
 ns:RegisterEvent("PLAYER_LOGIN", function()
