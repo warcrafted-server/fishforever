@@ -82,6 +82,15 @@ local function setStatus(text, color)
 end
 
 -- Override bindings are protected: only touched out of combat.
+-- The key that cast is still held when its binding is swapped to
+-- INTERACTTARGET (and back after looting), so the button never sees the key
+-- release and stays drawn as pushed. Reset the pressed look on every swap.
+local function releasePressed()
+    if button and not InCombatLockdown() then
+        button:SetButtonState("NORMAL")
+    end
+end
+
 local function armLoot()
     if InCombatLockdown() or bobberOut then
         return
@@ -93,6 +102,7 @@ local function armLoot()
     -- client has no /interact, so only a key (or a click on the bobber) loots.
     button:SetAttribute("type1", nil)
     bobberOut = true
+    releasePressed()
 end
 
 local function disarmLoot()
@@ -102,6 +112,7 @@ local function disarmLoot()
     ClearOverrideBindings(button)
     setCastAction()
     bobberOut = false
+    releasePressed()
 end
 
 local function showResult(text, color)
