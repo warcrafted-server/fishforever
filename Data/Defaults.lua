@@ -64,4 +64,13 @@ ns.charDefaults = {
     -- Items equipped before entering fishing mode, restored on exit.
     savedGear = {},
     fishingMode = false,
+    session = {
+        startedAt = 0,
+        lastActivity = 0,
+        activeTime = 0,
+        casts = 0,
+        catches = 0,
+        escapes = 0,
+        items = {},
+    },
 }
