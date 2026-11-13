@@ -27,4 +27,5 @@ Modules/SoundBoost.lua
 UI/Theme.lua
 UI/BobberButton.lua
 UI/MinimapButton.lua
+UI/StatsWindow.lua
 Core/Diag.lua

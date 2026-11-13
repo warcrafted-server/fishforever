@@ -16,8 +16,7 @@ local L = {
     MSG_HELP_HINT = "Type /ff help to see the available commands.",
     MSG_VERSION = "Version %s.",
     VERSION_UNKNOWN = "unknown",
-    SLASH_HELP_STATS = "Show how many catches are recorded and not yet shared.",
-    MSG_STATS = "Catches recorded and not yet shared: %d.",
+    SLASH_HELP_STATS = "Show or hide the fishing session window.",
     MSG_DATA_NEWER = "Your saved data comes from a newer version of FishForever. It will not be modified; please update the addon.",
 
     MSG_DIAG_IN_COMBAT = "The diagnostic cannot run in combat. Try again after combat.",
@@ -44,6 +43,7 @@ local L = {
     TIP_NO_KEY = "Bind a key in Key Bindings > AddOns > FishForever to loot with one press.",
     TIP_MINIMAP_LEFT = "Left click: show or hide the bobber button.",
     TIP_MINIMAP_RIGHT = "Right click: toggle fishing mode.",
+    TIP_MINIMAP_SHIFT = "Shift + left click: session stats.",
     TIP_MINIMAP_DRAG = "Drag: move around the minimap.",
     STATUS_MINIMAP_ON = "Fishing mode: on.",
     STATUS_MINIMAP_OFF = "Fishing mode: off.",
@@ -65,6 +65,20 @@ local L = {
     CONSENT_SHARE_GUILD = "Share with my guild",
     CONSENT_NOTE = "Only pool locations, what is caught and where, and counts. Never your character name.",
     SLASH_HELP_PRIVACY = "Show the privacy notice and sharing options.",
+
+    STATS_TITLE = "Fishing session",
+    STATS_TIME = "Time fishing",
+    STATS_CASTS = "Casts",
+    STATS_CATCHES = "Catches",
+    STATS_ESCAPES = "Got away",
+    STATS_PER_HOUR = "Catches per hour",
+    STATS_SUCCESS = "Success",
+    STATS_ITEMS = "Caught",
+    STATS_MORE = "+%d more",
+    STATS_EMPTY = "Nothing caught yet.",
+    STATS_RESET = "Reset",
+    STATS_RESET_CONFIRM = "Sure?",
+    STATS_CLOSE = "x",
 }
 
 setmetatable(L, {

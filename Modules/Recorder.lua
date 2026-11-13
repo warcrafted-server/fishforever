@@ -218,5 +218,7 @@ ns:RegisterEvent("LOOT_CLOSED", function()
 end)
 
 ns:RegisterSlashCommand("stats", function()
-    ns:Print(ns.L.MSG_STATS:format(Recorder:PendingCount()))
+    if ns.UI and ns.UI.StatsWindow then
+        ns.UI.StatsWindow:Toggle()
+    end
 end, "SLASH_HELP_STATS")
