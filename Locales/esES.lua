@@ -168,6 +168,12 @@ local translations = {
     OPT_SEC_ADVISOR = "Asesor",
     OPT_ADVISOR_WARN = "Mostrar consejos de pesca",
     OPT_ADVISOR_WARN_TIP = "Avisa cuando no puedes pescar en la zona actual y recuerda entrenar.",
+    ZONES_TITLE = "Zonas de pesca",
+    ZONES_CLEAN = "Sin escapes",
+    ZONES_NEXT = "Siguientes zonas",
+    ZONES_NONE = "Ninguna",
+    ZONES_RULE = "Por debajo del mínimo no se puede pescar; desde el mínimo + 95 no se escapa ningún pez.",
+    STATS_ZONES = "Zonas",
 }
 
 for key, value in pairs(translations) do

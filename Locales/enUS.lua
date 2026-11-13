@@ -161,6 +161,12 @@ local L = {
     OPT_SEC_ADVISOR = "Advisor",
     OPT_ADVISOR_WARN = "Show fishing advice",
     OPT_ADVISOR_WARN_TIP = "Warn when you cannot fish in the current zone and remind you to train.",
+    ZONES_TITLE = "Fishing zones",
+    ZONES_CLEAN = "No escapes",
+    ZONES_NEXT = "Next zones",
+    ZONES_NONE = "None",
+    ZONES_RULE = "Below the minimum you cannot fish; from the minimum + 95 no fish escapes.",
+    STATS_ZONES = "Zones",
 }
 
 setmetatable(L, {

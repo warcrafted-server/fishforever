@@ -45,7 +45,7 @@ local cards = {}
 local compactLine, advisorLine, headerText, separator
 local itemRows = {}
 local emptyText, moreText
-local resetButton, resetLabel
+local resetButton, resetLabel, zonesButton, zonesLabel
 local resetConfirmUntil = 0
 local elapsed = 0
 local shownRows = 0
@@ -608,6 +608,35 @@ local function buildContent()
             startResetConfirm()
         end
     end)
+
+    local okZones, zonesTemplate = pcall(CreateFrame, "Button", nil, content, "UIPanelButtonTemplate")
+    if okZones and zonesTemplate then
+        zonesButton = zonesTemplate
+    else
+        local okBackdrop, backdropButton = pcall(CreateFrame, "Button", nil, content, "BackdropTemplate")
+        zonesButton = (okBackdrop and backdropButton) or CreateFrame("Button", nil, content)
+        if zonesButton.SetBackdrop then
+            zonesButton:SetBackdrop(Theme.backdrop)
+            zonesButton:SetBackdropColor(palette.panelBg[1], palette.panelBg[2], palette.panelBg[3], 1)
+            zonesButton:SetBackdropBorderColor(palette.panelBorder[1], palette.panelBorder[2], palette.panelBorder[3], 1)
+        end
+        zonesLabel = createText(zonesButton, "GameFontNormalSmall", "small", palette.text)
+        zonesLabel:SetPoint("CENTER")
+        zonesLabel:SetText(L.STATS_ZONES)
+    end
+    zonesButton:SetWidth(BUTTON_WIDTH)
+    if zonesButton.SetHeight then
+        zonesButton:SetHeight(BUTTON_HEIGHT)
+    end
+    zonesButton:SetPoint("BOTTOMLEFT", content, "BOTTOMLEFT", 0, 0)
+    if type(zonesButton.SetText) == "function" then
+        zonesButton:SetText(L.STATS_ZONES)
+    end
+    zonesButton:SetScript("OnClick", function()
+        if ns.UI and ns.UI.ZonesPopup then
+            ns.UI.ZonesPopup:Toggle()
+        end
+    end)
 end
 
 local function tryFrame(template)
@@ -741,6 +770,9 @@ local function createFrame()
 
     frame:SetScript("OnHide", function()
         cancelResetConfirm()
+        if ns.UI and ns.UI.ZonesPopup then
+            ns.UI.ZonesPopup:Hide()
+        end
     end)
 
     frame:SetScript("OnUpdate", function(_, delta)

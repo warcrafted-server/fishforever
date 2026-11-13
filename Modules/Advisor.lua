@@ -147,6 +147,11 @@ function Advisor:StatusLine()
     return ns.L.ADVISOR_LINE:format(skillText, zoneStatusText(status, name, minSkill, noEscapeSkill))
 end
 
+function Advisor:CurrentZone()
+    local mapID = currentMapID()
+    return mapID, zoneName(mapID)
+end
+
 function Advisor:CheckTraining()
     local settings = ns.db and ns.db.settings
     local advisor = settings and settings.advisor
