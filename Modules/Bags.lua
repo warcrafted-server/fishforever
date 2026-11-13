@@ -3,7 +3,7 @@ local ADDON, ns = ...
 local Bags = ns:NewModule("Bags")
 
 local BAG_COUNT = 4
-local WARN_INTERVAL = 20
+local WARN_INTERVAL = 60
 
 local lastWarning = {}
 
@@ -53,7 +53,7 @@ ns:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START", function(_, _, unit, _, spellID
     local free = Bags:FreeSlots()
     if free == 0 then
         warn("full", ns.L.MSG_BAGS_FULL, 1, 0.54, 0.24)
-    elseif free <= 2 then
+    elseif free <= 5 then
         warn("low", ns.L.MSG_BAGS_LOW:format(free), 0.95, 0.83, 0.23)
     end
 end)
