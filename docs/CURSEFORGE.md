@@ -17,7 +17,8 @@ Paste into the project description: English first, then Spanish. Updated on ever
 - **Loot straight to your bags,** no loot window clicking.
 - **Lures with one press:** a small lure button next to the floating button (and its own key) applies the best lure in your bags, shows how many you have and the time left, and warns you when it runs out.
 - **Hear the bite:** while fishing, sound effects go up and music and ambience go down, then everything returns to your settings.
-- **Floating button** with a time ring (green, amber, red), your loot key and catch or escaped messages. Show or hide it with a left click on the minimap button. Clicking it casts; looting needs the key or a right click on the bobber.
+- **Native look:** the floating and lure buttons are real action buttons like your bars, and the session window uses the game's own frame.
+- **Floating button** with a timer sweep (green, amber, red), your loot key and catch or escaped messages. Show or hide it with a left click on the minimap button. Clicking it casts; looting needs the key or a right click on the bobber.
 - **Session stats** (`/ff stats` or Shift + left click on the minimap button): time fishing, catches per hour, success rate and what you caught, coloured by rarity.
 - **Catch log:** what you catch and where is saved locally. Nothing is sent anywhere.
 - English and Spanish.
@@ -42,7 +43,8 @@ Free for non-commercial use under WNCL-1.0. Source: https://github.com/warcrafte
 - **El botín va directo a las bolsas,** sin hacer clic en la ventana de botín.
 - **Cebos con una pulsación:** un botón pequeño junto al botón flotador (y su propia tecla) pone el mejor cebo de tus bolsas, muestra cuántos te quedan y el tiempo restante, y avisa cuando se acaba.
 - **Oye la picada:** al pescar suben los efectos de sonido y bajan la música y el ambiente; después todo vuelve a tus ajustes.
-- **Botón flotador** con anillo de tiempo (verde, ámbar y rojo), tu tecla para recoger y aviso de captura o de pez escapado. Se muestra u oculta con clic izquierdo en el botón del minimapa. Un clic en él lanza; para recoger, la tecla o clic derecho sobre el corcho.
+- **Aspecto nativo:** el botón flotador y el de cebo son botones de acción como los de tus barras, y la ventana de la sesión usa el marco del propio juego.
+- **Botón flotador** con barrido de tiempo (verde, ámbar y rojo), tu tecla para recoger y aviso de captura o de pez escapado. Se muestra u oculta con clic izquierdo en el botón del minimapa. Un clic en él lanza; para recoger, la tecla o clic derecho sobre el corcho.
 - **Estadísticas de la sesión** (`/ff stats` o Mayús + clic izquierdo en el botón del minimapa): tiempo pescando, capturas por hora, porcentaje de éxito y lo pescado, con el color de su rareza.
 - **Registro de capturas:** qué pescas y dónde se guarda en tu equipo. No se envía nada a ningún sitio.
 - Español e inglés.

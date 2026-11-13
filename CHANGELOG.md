@@ -5,6 +5,17 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.4.0] - 2026-11-16
+
+### Cambiado
+
+- Aspecto nativo del juego: el botón flotador y el de cebo son botones de acción como los de tus barras (marco del juego, tecla asignada en la esquina, barrido de tiempo y destello al capturar). El botón de cebo late en dorado cuando llevas la caña sin cebo y te quedan en las bolsas.
+- La ventana de la sesión usa el marco de ventana del juego, con retrato, título y cierre nativos, tarjetas con capturas, capturas por hora y éxito, y filas con el icono enmarcado por rareza, barra de proporción y tooltip del objeto. «Reiniciar» es el botón rojo del juego.
+
+### Corregido
+
+- El botón flotador ya no se queda iluminado como pulsado al lanzar o recoger con la tecla.
+
 ## [0.3.0] - 2026-11-15
 
 ### Añadido

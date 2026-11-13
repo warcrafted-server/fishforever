@@ -1,11 +1,17 @@
-## 0.3.0 (2026-11-15)
+## 0.4.0 (2026-11-16)
 
-### Added
-- Lure button next to the floating button, with its own key (Key Bindings > AddOns > FishForever > Apply lure): one press applies the best lure in your bags to the fishing pole. It shows how many lures you have and the time left on the pole (green, amber, red); its border turns orange when the pole has no lure.
-- A warning with a sound when your lure runs out in fishing mode, telling you the key to apply another.
+### Changed
+- Native game look: the floating button and the lure button are action buttons like the ones on your bars (game frame, bound key in the corner, timer sweep and a flash when you catch something). The lure button pulses gold when your pole has no lure and you have some in your bags.
+- The session window uses the game's own window frame, with portrait, title and close button, cards for catches, catches per hour and success, and rows with rarity-framed icons, a share bar and the item tooltip. Reset is the game's red button.
 
-## 0.3.0 (2026-11-15)
+### Fixed
+- The floating button no longer stays lit as pressed after casting or looting with the key.
 
-### Añadido
-- Botón de cebo junto al botón flotador, con su propia tecla (Atajos de teclado > Accesorios > FishForever > Poner cebo): una pulsación pone en la caña el mejor cebo de tus bolsas. Muestra cuántos cebos te quedan y el tiempo restante en la caña (verde, ámbar y rojo); su borde se vuelve naranja si la caña no lleva cebo.
-- Aviso con sonido cuando el cebo se acaba en modo pesca, con la tecla para poner otro.
+## 0.4.0 (2026-11-16)
+
+### Cambiado
+- Aspecto nativo del juego: el botón flotador y el de cebo son botones de acción como los de tus barras (marco del juego, tecla asignada en la esquina, barrido de tiempo y destello al capturar). El botón de cebo late en dorado cuando la caña no lleva cebo y te quedan en las bolsas.
+- La ventana de la sesión usa el marco de ventana del juego, con retrato, título y cierre, tarjetas con capturas, capturas por hora y éxito, y filas con el icono enmarcado por rareza, barra de proporción y tooltip del objeto. «Reiniciar» es el botón rojo del juego.
+
+### Corregido
+- El botón flotador ya no se queda iluminado como pulsado al lanzar o recoger con la tecla.

@@ -19,12 +19,12 @@
 
 ### Estilo visual
 
-Misma familia que Lorewake y FarmAdvisor (estilo Diario de mazmorras), con los tokens de la maqueta UI-4 de FarmAdvisor:
+Aspecto nativo del cliente moderno de WoW Forever, con plantillas y atlas comprobados con `/ff diag`:
 
-- Ventana `#15100b` con borde `#5a4630`; barras `#1d160f`; paneles `#191209` con borde `#2e2418`; separadores `#2a2015`.
-- Título en mayúsculas pequeñas dorado `#e6b84a` (fuente `FRIZQT__`), etiquetas de sección `#c9a24a`, texto `#e9dfc8`, texto secundario `#a3957c`.
-- Pestañas con subrayado dorado en la activa; botón de cerrar rojo oscuro; botón principal `#6b1d12` con borde `#b8914a`.
-- Estados: correcto `#7fe08a`, falta `#ff6b62`, ámbar `#f2d43a`, naranja `#ff8a3d` (también para el anillo de temporizador verde → ámbar → rojo).
+- Botones de acción: `ActionButtonTemplate` seguido de `SecureActionButtonTemplate` (la plantilla segura va la última para que su gestor de clics no quede sustituido). Tecla abreviada en la esquina, barrido nativo y resaltado de ratón atenuado.
+- Ventanas: `ButtonFrameTemplate` (o `PortraitFrameTemplate`) con retrato, título y cierre nativos; botones `UIPanelButtonTemplate`; filas con los atlas `PetList-ButtonBackground` y `PetList-ButtonHighlight`; bordes de objeto `loottab-set-itemborder-white` teñidos por rareza.
+- Fuentes del juego (`GameFontNormal`, `GameFontHighlight`…) mediante `Theme:SetFont`, con reserva si faltan.
+- Colores de estado: correcto `#7fe08a`, ámbar `#f2d43a`, falta `#ff6b62` (temporizadores verde → ámbar → rojo) y naranja `#ff8a3d` para avisos.
 
 ### Datos y privacidad
 
