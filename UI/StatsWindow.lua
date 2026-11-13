@@ -521,11 +521,14 @@ local function buildContent()
         row.barBg:SetHeight(4)
         row.barBg:SetPoint("BOTTOMLEFT", row, "BOTTOMLEFT", 44, 6)
         applyAtlas(row.barBg, "UI-CastingBar-Background", { 0, 0, 0, 0.5 })
+        -- SetAtlas with the atlas size overrides the height; keep the bar thin.
+        row.barBg:SetHeight(4)
 
         row.barFill = row:CreateTexture(nil, "ARTWORK")
         row.barFill:SetHeight(4)
         row.barFill:SetPoint("LEFT", row.barBg, "LEFT", 0, 0)
         applyAtlas(row.barFill, "UI-Frame-Bar-Fill-Green", { 1, 1, 1, 1 })
+        row.barFill:SetHeight(4)
 
         row.itemID = nil
         row:SetScript("OnEnter", function(self)
