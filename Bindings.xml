@@ -1,4 +1,6 @@
 <Bindings>
     <Binding name="CLICK FishForeverBobberButton:LeftButton" header="FISHFOREVER" category="ADDONS">
     </Binding>
+    <Binding name="CLICK FishForeverLureButton:LeftButton" category="ADDONS">
+    </Binding>
 </Bindings>

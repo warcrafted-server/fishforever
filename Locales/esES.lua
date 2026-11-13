@@ -86,6 +86,16 @@ local translations = {
     STATS_RESET = "Reiniciar",
     STATS_RESET_CONFIRM = "¿Seguro?",
     STATS_CLOSE = "x",
+    BINDING_LURE = "Poner cebo",
+    TIP_LURE_BONUS = "+%d a pesca",
+    TIP_LURE_COUNT = "En las bolsas: %d",
+    TIP_LURE_NONE = "No tienes cebos en las bolsas.",
+    TIP_LURE_LEFT = "Cebo en la caña: quedan %s.",
+    TIP_LURE_APPLY = "Clic o tecla: pone el cebo en la caña.",
+    TIP_LURE_NO_KEY = "Asigna una tecla en Atajos de teclado > Accesorios > FishForever > Poner cebo.",
+    MSG_LURE_EXPIRED = "Se acabó el cebo. Pulsa %s para poner otro.",
+    MSG_LURE_EXPIRED_CLICK = "Se acabó el cebo. Haz clic en el botón del cebo para poner otro.",
+    MSG_LURE_NONE_LEFT = "Se acabó el cebo y no te quedan más.",
 }
 
 for key, value in pairs(translations) do
