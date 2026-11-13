@@ -11,6 +11,15 @@ globals = {
 }
 
 read_globals = {
+    "GameFontDisable",
+    "GameFontHighlightSmall",
+    "GameFontNormalHuge",
+    "ButtonFrameTemplate_HideButtonBar",
+    "GameFontNormalSmall",
+    "ActionButton_HideOverlayGlow",
+    "ActionButton_ShowOverlayGlow",
+    "ActionButtonSpellAlertManager",
+    "C_Texture",
     "GetBindingText",
     "PlaySound",
     "SOUNDKIT",

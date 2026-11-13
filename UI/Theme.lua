@@ -58,3 +58,14 @@ function ns.UI.Theme:TimerColor(remaining)
     end
     return palette.missing
 end
+
+-- Native font objects keep the action buttons consistent with the client UI.
+function ns.UI.Theme:SetFont(fontString, objectName, fallbackKey, flags)
+    local object = objectName and _G[objectName]
+    if object then
+        fontString:SetFontObject(object)
+        return
+    end
+    local font = self.font[fallbackKey] or self.font.small
+    fontString:SetFont(font[1], font[2], flags)
+end
