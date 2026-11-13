@@ -11,13 +11,14 @@ Addon de pesca para **WoW Forever**: botón flotador de un toque, caja de aparej
 - **Modo pesca:** equipa la caña de tus bolsas y al salir devuelve tu arma y escudo. En combate espera a que termine.
 - **Una tecla para lanzar y recoger:** una pulsación = una acción. No es un bot: nunca lanza ni recoge solo.
 - **El botín va directo a las bolsas.**
+- **Cebos con una pulsación:** el botón de cebo (o su tecla) pone el mejor cebo de tus bolsas y muestra su tiempo restante; avisa cuando se acaba.
 - **Oye la picada:** al pescar suben los efectos de sonido y bajan la música y el ambiente.
 - **Botón flotador** con anillo de tiempo y aviso de captura o pez escapado, y **botón en el minimapa**.
 - **Registro local de capturas:** qué pescas y dónde.
 
 - **Estadísticas de la sesión:** tiempo, capturas por hora, éxito y lo pescado por rareza.
 
-Próximamente: caja de aparejos, asesor de zona y mapa colaborativo de bancos. La hoja de ruta completa está en [docs/ROADMAP.md](docs/ROADMAP.md).
+Próximamente: asesor de zona y mapa colaborativo de bancos. La hoja de ruta completa está en [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Requisitos
 
@@ -33,7 +34,8 @@ Próximamente: caja de aparejos, asesor de zona y mapa colaborativo de bancos. L
 1. Asigna una tecla en **Atajos de teclado > Accesorios > FishForever > Lanzar / recoger**.
 2. Clic derecho en el botón del minimapa para entrar en el modo pesca (equipa la caña).
 3. Pulsa la tecla para lanzar y, cuando pique, otra vez para recoger. También puedes recoger con clic derecho sobre el corcho.
-4. Clic derecho en el botón del minimapa para volver a tu arma y escudo.
+4. Para poner el cebo, asigna una tecla en **Accesorios > FishForever > Poner cebo** o haz clic en el botón pequeño de la esquina del botón flotador.
+5. Clic derecho en el botón del minimapa para volver a tu arma y escudo.
 
 El clic izquierdo en el botón del minimapa muestra u oculta el botón flotador; con Mayús + arrastrar lo mueves.
 
