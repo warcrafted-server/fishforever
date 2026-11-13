@@ -1,0 +1,20 @@
+package-as: FishForever
+
+manual-changelog:
+  filename: docs/RELEASE_NOTES.md
+  markup-type: markdown
+
+ignore:
+  - docs
+  - .agents
+  - .claude
+  - .agentrelay
+  - .github
+  - CLAUDE.md
+  - AGENTS.md
+  - TODO.md
+  - VERSION
+  - README.en.md
+  - .luacheckrc
+  - .gitignore
+  - UI/Consent.lua

@@ -1,18 +1,18 @@
 # TODO
 
-## Alta prioridad (0.1.0)
+La publicación es diaria y escalonada: una novedad probada en el juego por entrega. Ver [docs/ROADMAP.md](docs/ROADMAP.md).
 
-- Leer los resultados de `/ff diag` y `/ff debug` (SavedVariables) y decidir con ellos el modo pesca, el botón y el aviso de picada.
+## Alta prioridad
+
+- Estadísticas de sesión en una ventana (capturas por hora, rarezas, tiempo pescando).
 - Detectar bancos de peces (ahora solo se guardan los puntos donde se pesca).
-- Modo pesca, botón flotador de un toque y aviso de picada.
-- `.pkgmeta` y GitHub Action de publicación en CurseForge (BigWigs packager).
-- Crear el proyecto en CurseForge y poner su ID en `## X-Curse-Project-ID`.
 
 ## Media prioridad
 
-- Aplicar el estilo visual definido en `docs/DISENO.md` (base Lorewake/FarmAdvisor).
+- Pescar con el ratón: doble clic derecho en el agua para lanzar y clic derecho para recoger, opcional y desactivado por defecto.
 - Configurar `luacheck`.
 
-## Siguientes versiones
+## Descartado
 
-Ver [docs/ROADMAP.md](docs/ROADMAP.md).
+- Recoger con un clic en el botón flotador: este cliente no tiene `/interact` y un botón de addon no puede interactuar con el corcho.
+- Aviso de picada por evento: el cliente no notifica la picada; se sustituye por el realce de sonido y el anillo de tiempo.

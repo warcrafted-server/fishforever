@@ -5,6 +5,8 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.1.0] - 2026-11-13
+
 ### Añadido
 
 - Esqueleto del addon: `FishForever.toc` (interfaz 16001), namespace y despachador de eventos, comandos `/ff` y `/fishforever` (`help`, `version`) y localización esES/enUS.
@@ -18,6 +20,15 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 - Realce de sonido al pescar (efectos al máximo, música y ambiente bajados) para oír la picada, ya que el cliente no la notifica; se restaura al dejar de pescar. `/ff sound` lo activa o desactiva.
 - La pesca va directa a las bolsas al recogerla (sin hacer clic en la ventana de botín).
 - Botón en el minimapa: clic izquierdo muestra u oculta el botón flotador (oculto por defecto) y clic derecho activa o desactiva el modo pesca. `/ff minimap` lo oculta.
+- El botón flotador muestra la tecla para recoger mientras pescas y, al activar el modo pesca sin tecla asignada, avisa de dónde asignarla.
+
+### Cambiado
+
+- Titular de la licencia y autor unificados como WarCrafted.
+
+### Limitaciones conocidas
+
+- Este cliente no tiene `/interact`: un clic en el botón flotador lanza, pero solo la tecla (o el clic derecho sobre el corcho) recoge.
 
 ## [0.0.1] - 2026-11-12
 

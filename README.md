@@ -4,17 +4,18 @@
 
 Addon de pesca para **WoW Forever**: botón flotador de un toque, caja de aparejos con temporizador de cebos, estadísticas y mapa colaborativo de bancos de peces.
 
-> **Estado:** en desarrollo. Esta versión (0.0.1) solo contiene la documentación y la hoja de ruta; todavía no hay addon instalable. La primera versión funcional será la 0.1.0.
+> **Estado:** 0.1.0, primera versión pública. Cada día se van añadiendo novedades ya probadas en el juego.
 
-## Qué hará
+## Qué hace
 
-- **Modo pesca:** equipa la caña y el cebo, y al salir restaura tu arma y escudo anteriores.
-- **Botón flotador de un toque:** un clic = una acción (lanzar o recoger). No es un bot: nunca pesca solo.
-- **Aviso de picada** visual y sonoro.
-- **Caja de aparejos** con temporizador de cebos, **estadísticas de sesión** y **asesor de zona**.
-- **Mapa colaborativo de bancos de peces**, compartido con tu grupo y hermandad.
+- **Modo pesca:** equipa la caña de tus bolsas y al salir devuelve tu arma y escudo. En combate espera a que termine.
+- **Una tecla para lanzar y recoger:** una pulsación = una acción. No es un bot: nunca lanza ni recoge solo.
+- **El botín va directo a las bolsas.**
+- **Oye la picada:** al pescar suben los efectos de sonido y bajan la música y el ambiente.
+- **Botón flotador** con anillo de tiempo y aviso de captura o pez escapado, y **botón en el minimapa**.
+- **Registro local de capturas:** qué pescas y dónde.
 
-La hoja de ruta completa está en [docs/ROADMAP.md](docs/ROADMAP.md).
+Próximamente: estadísticas de sesión, caja de aparejos, asesor de zona y mapa colaborativo de bancos. La hoja de ruta completa está en [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Requisitos
 
@@ -22,18 +23,31 @@ La hoja de ruta completa está en [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Instalación
 
-Aún no hay versión instalable. Cuando se publique la 0.1.0 podrás instalarlo:
-
-- **CurseForge:** desde la app de CurseForge (enlace pendiente).
+- **CurseForge:** busca FishForever en la app de CurseForge o en https://www.curseforge.com/wow/addons/fishforever.
 - **Manual:** descomprime la carpeta `FishForever` en `World of Warcraft\_forever_\Interface\AddOns\` y reinicia el juego.
 
 ## Uso
 
-Comandos previstos: `/fishforever` y `/ff`. Se documentarán aquí con la 0.1.0.
+1. Asigna una tecla en **Atajos de teclado > Accesorios > FishForever > Lanzar / recoger**.
+2. Clic derecho en el botón del minimapa para entrar en el modo pesca (equipa la caña).
+3. Pulsa la tecla para lanzar y, cuando pique, otra vez para recoger. También puedes recoger con clic derecho sobre el corcho.
+4. Clic derecho en el botón del minimapa para volver a tu arma y escudo.
+
+El clic izquierdo en el botón del minimapa muestra u oculta el botón flotador; con Mayús + arrastrar lo mueves.
+
+| Comando | Qué hace |
+|---|---|
+| `/ff` | Ayuda |
+| `/ff fish` | Activa o desactiva el modo pesca |
+| `/ff button` | Muestra u oculta el botón flotador |
+| `/ff lock` | Bloquea o desbloquea su posición |
+| `/ff sound` | Activa o desactiva el realce de sonido |
+| `/ff minimap` | Muestra u oculta el botón del minimapa |
+| `/ff stats` | Capturas registradas |
 
 ## Privacidad
 
-FishForever compartirá con tu grupo y hermandad **solo datos no personales**: coordenadas de bancos, qué se pesca y dónde, y conteos. Nunca el nombre del personaje ni un historial individual. La compartición podrá desactivarse en Opciones y, al desactivarla, el addon deja de enviar. El addon no se conecta a internet: para aportar a la comunidad generará una cadena de texto que tú decides si pegas en la web de Warcrafted. Detalles en [docs/DISENO.md](docs/DISENO.md).
+Hoy FishForever no envía nada: las capturas se guardan solo en tu equipo. Cuando llegue la compartición, FishForever compartirá con tu grupo y hermandad **solo datos no personales**: coordenadas de bancos, qué se pesca y dónde, y conteos. Nunca el nombre del personaje ni un historial individual. La compartición podrá desactivarse en Opciones y, al desactivarla, el addon deja de enviar. El addon no se conecta a internet: para aportar a la comunidad generará una cadena de texto que tú decides si pegas en la web de Warcrafted. Detalles en [docs/DISENO.md](docs/DISENO.md).
 
 ## Créditos y licencia
 

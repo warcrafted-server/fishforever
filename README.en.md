@@ -4,17 +4,18 @@
 
 Fishing addon for **WoW Forever**: one-touch bobber button, tackle box with lure timers, session stats and a community map of fishing pools.
 
-> **Status:** in development. This version (0.0.1) only contains documentation and the roadmap; there is no installable addon yet. The first working version will be 0.1.0.
+> **Status:** 0.1.0, first public release. New features, already tested in game, are added day by day.
 
-## Planned features
+## Features
 
-- **Fishing mode:** equips your fishing pole and lure, and restores your previous weapon and shield when you leave.
-- **One-touch bobber button:** one click = one action (cast or loot). It is not a bot: it never fishes on its own.
-- Visual and sound **bite alert**.
-- **Tackle box** with lure timers, **session stats** and a **zone advisor**.
-- **Community map of fishing pools**, shared with your group and guild.
+- **Fishing mode:** equips the fishing pole from your bags and gives your weapon and shield back when you leave. In combat it waits until combat ends.
+- **One key to cast and loot:** one press = one action. It is not a bot: it never casts or loots on its own.
+- **Loot goes straight to your bags.**
+- **Hear the bite:** while fishing, sound effects go up and music and ambience go down.
+- **Floating button** with a time ring and catch or escaped messages, plus a **minimap button**.
+- **Local catch log:** what you catch and where.
 
-See the full roadmap in [docs/ROADMAP.md](docs/ROADMAP.md).
+Coming soon: session stats, tackle box, zone advisor and a community map of fishing pools. See the full roadmap in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Requirements
 
@@ -22,18 +23,31 @@ See the full roadmap in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Installation
 
-There is no installable version yet. Once 0.1.0 is released you can install it:
-
-- **CurseForge:** from the CurseForge app (link pending).
+- **CurseForge:** search for FishForever in the CurseForge app or at https://www.curseforge.com/wow/addons/fishforever.
 - **Manual:** extract the `FishForever` folder into `World of Warcraft\_forever_\Interface\AddOns\` and restart the game.
 
 ## Usage
 
-Planned commands: `/fishforever` and `/ff`. They will be documented here with 0.1.0.
+1. Bind a key in **Key Bindings > AddOns > FishForever > Cast / loot**.
+2. Right-click the minimap button to enter fishing mode (equips the pole).
+3. Press the key to cast and, when a fish bites, press it again to loot. You can also loot by right-clicking the bobber.
+4. Right-click the minimap button to get your weapon and shield back.
+
+Left-click the minimap button to show or hide the floating button; Shift + drag moves it.
+
+| Command | What it does |
+|---|---|
+| `/ff` | Help |
+| `/ff fish` | Toggle fishing mode |
+| `/ff button` | Show or hide the floating button |
+| `/ff lock` | Lock or unlock its position |
+| `/ff sound` | Toggle the sound boost |
+| `/ff minimap` | Show or hide the minimap button |
+| `/ff stats` | Recorded catches |
 
 ## Privacy
 
-FishForever will share **only non-personal data** with your group and guild: pool coordinates, what is caught where, and counts. Never your character name or individual history. Sharing can be turned off in Options, and once off the addon stops sending. The addon never connects to the internet: to contribute to the community it generates a text string that you choose whether to paste on the Warcrafted website. Details in [docs/DISENO.md](docs/DISENO.md).
+Today FishForever sends nothing: catches are only saved on your computer. When sharing arrives, FishForever will share **only non-personal data** with your group and guild: pool coordinates, what is caught where, and counts. Never your character name or individual history. Sharing can be turned off in Options, and once off the addon stops sending. The addon never connects to the internet: to contribute to the community it generates a text string that you choose whether to paste on the Warcrafted website. Details in [docs/DISENO.md](docs/DISENO.md).
 
 ## Credits and license
 
