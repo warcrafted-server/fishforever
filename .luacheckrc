@@ -11,6 +11,7 @@ globals = {
 }
 
 read_globals = {
+    "GetWeaponEnchantInfo",
     "GetCursorPosition",
     "Minimap",
     "LootSlot",

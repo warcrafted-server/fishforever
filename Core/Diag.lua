@@ -274,9 +274,63 @@ local function collectMap()
     return map
 end
 
+-- Every bag item with its class and use spell, to identify fishing lures.
+local function collectBags()
+    local bags = {}
+    if type(C_Container) ~= "table" or type(C_Container.GetContainerNumSlots) ~= "function" then
+        return bags
+    end
+    for bag = 0, 4 do
+        local slots = safeCall(C_Container.GetContainerNumSlots, bag) or 0
+        for slot = 1, (type(slots) == "number" and slots or 0) do
+            local ok, info = pcall(C_Container.GetContainerItemInfo, bag, slot)
+            if ok and type(info) == "table" and info.itemID then
+                local entry = {
+                    bag = bag,
+                    slot = slot,
+                    itemID = safe(info.itemID),
+                    link = safe(info.hyperlink),
+                    count = safe(info.stackCount),
+                }
+                if type(C_Item) == "table" and type(C_Item.GetItemInfoInstant) == "function" then
+                    local values = pack(pcall(C_Item.GetItemInfoInstant, info.itemID))
+                    if values[1] then
+                        entry.classID = safe(values[7])
+                        entry.subclassID = safe(values[8])
+                    end
+                end
+                if type(C_Item) == "table" and type(C_Item.GetItemSpell) == "function" then
+                    local values = pack(pcall(C_Item.GetItemSpell, info.itemID))
+                    if values[1] then
+                        entry.spellName = safe(values[2])
+                        entry.spellID = safe(values[3])
+                    end
+                end
+                bags[#bags + 1] = entry
+            end
+        end
+    end
+    return bags
+end
+
+-- Temporary weapon enchant (fishing lure) on the main hand.
+local function collectWeaponEnchant()
+    local values = pack(pcall(GetWeaponEnchantInfo))
+    if not values[1] then
+        return { ok = false }
+    end
+    local result = { ok = true }
+    for i = 2, math.min(values.n, 9) do
+        result[i - 1] = safe(values[i])
+    end
+    return result
+end
+
 local function collectSamples()
     return {
         inventory = collectInventory(),
+        bags = collectBags(),
+        weaponEnchant = collectWeaponEnchant(),
         spells = collectSpells(),
         professions = collectProfessions(),
         map = collectMap(),
