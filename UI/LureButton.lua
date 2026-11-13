@@ -1,5 +1,10 @@
 local ADDON, ns = ...
 
+ns.UI = ns.UI or {}
+
+local LureButton = {}
+ns.UI.LureButton = LureButton
+
 local BUTTON_NAME = "FishForeverLureButton"
 local BINDING = "CLICK " .. BUTTON_NAME .. ":LeftButton"
 local MAIN_HAND = 16
@@ -14,7 +19,7 @@ _G["BINDING_NAME_" .. BINDING] = L.BINDING_LURE
 local button, icon, timerText, countText
 local appliedItemID
 local pendingUpdate = false
-local pendingVisible
+local pendingVisibility
 local glowing = false
 
 local function isSecret(value)
@@ -211,15 +216,8 @@ local function refresh()
 
     setGlow(pole and not hasLure and itemID ~= nil)
 
-    -- Nothing to apply and nothing on the pole: the button would sit there empty.
-    local want = itemID ~= nil or hasLure == true
-    if want ~= button:IsShown() then
-        if InCombatLockdown() then
-            pendingVisible = want
-        else
-            pendingVisible = nil
-            button:SetShown(want)
-        end
+    if LureButton:WantsToShow() ~= button:IsShown() then
+        LureButton:ApplyVisibility()
     end
 end
 
@@ -306,6 +304,7 @@ local function create()
 
     updateAttributes(true)
     refresh()
+    LureButton:ApplyVisibility()
     return true
 end
 
@@ -316,6 +315,44 @@ local function setup()
     if type(C_Timer) == "table" and type(C_Timer.After) == "function" then
         C_Timer.After(0, setup)
     end
+end
+
+local function setVisible(show)
+    if not button then
+        return false
+    end
+    if InCombatLockdown() then
+        pendingVisibility = show
+        return false
+    end
+    pendingVisibility = nil
+    button:SetShown(show)
+    return true
+end
+
+-- The button follows the option; with "hide when none" it also needs a lure
+-- in the bags or on the pole, so it does not sit there empty.
+function LureButton:WantsToShow()
+    local settings = ns.db and ns.db.settings
+    local lureSettings = settings and settings.lure
+    if not (lureSettings and lureSettings.button == true) then
+        return false
+    end
+    if lureSettings.hideWhenNone == false then
+        return true
+    end
+    local lure = ns.modules.Lure
+    if not lure then
+        return true
+    end
+    if lure:FindBest() then
+        return true
+    end
+    return lure:GetActive() == true
+end
+
+function LureButton:ApplyVisibility()
+    return setVisible(self:WantsToShow())
 end
 
 function ns.LureChanged()
@@ -353,9 +390,10 @@ ns:RegisterEvent("PLAYER_REGEN_ENABLED", function()
     if pendingUpdate then
         updateAttributes(true)
     end
-    if pendingVisible ~= nil then
-        pendingVisible = nil
-        refresh()
+    if pendingVisibility ~= nil then
+        local show = pendingVisibility
+        pendingVisibility = nil
+        setVisible(show)
     end
 end)
 

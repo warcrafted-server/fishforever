@@ -13,10 +13,21 @@ local BOOST = {
 }
 local DIM_CVARS = { "Sound_MusicVolume", "Sound_AmbienceVolume" }
 
--- Keep the boost between consecutive casts instead of flickering the volume.
-local RESTORE_DELAY = 10
-
 local restoreToken = 0
+
+local function restoreDelay()
+    local alert = ns.db and ns.db.settings.alert
+    local delay = alert and alert.restoreDelay
+    if type(delay) ~= "number" then
+        delay = 10
+    end
+    if delay < 0 then
+        delay = 0
+    elseif delay > 60 then
+        delay = 60
+    end
+    return delay
+end
 
 local function getCVar(name)
     if C_CVar and C_CVar.GetCVar then
@@ -46,9 +57,11 @@ function SoundBoost:Start()
         return
     end
     local saved = {}
-    for name, value in pairs(BOOST) do
-        saved[name] = getCVar(name)
-        setCVar(name, value)
+    if alert.boostSFX then
+        for name, value in pairs(BOOST) do
+            saved[name] = getCVar(name)
+            setCVar(name, value)
+        end
     end
     local percent = tonumber(alert.dim) or 30
     local factor = percent / 100
@@ -87,7 +100,7 @@ end
 function SoundBoost:ScheduleRestore()
     restoreToken = restoreToken + 1
     local token = restoreToken
-    C_Timer.After(RESTORE_DELAY, function()
+    C_Timer.After(restoreDelay(), function()
         if token == restoreToken then
             SoundBoost:Restore()
         end

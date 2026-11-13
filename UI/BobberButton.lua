@@ -24,6 +24,7 @@ local button, cooldown, status
 local channel -- { startTime, endTime } in seconds while fishing
 local bobberOut = false
 local resultUntil = 0
+local pendingShown
 
 local function fishingSpell()
     if C_Spell and C_Spell.GetSpellName then
@@ -121,6 +122,10 @@ local function showResult(text, color)
 end
 
 local function flashCatch()
+    local alert = ns.db and ns.db.settings.alert
+    if alert and alert.flash == false then
+        return
+    end
     if not (button and button.Flash) then
         return
     end
@@ -247,6 +252,7 @@ local function create()
     button:SetScript("OnUpdate", refresh)
 
     button:SetShown(cfg.shown)
+    BobberButton:ApplyLook()
 end
 
 function BobberButton:SetShown(shown)
@@ -272,8 +278,46 @@ function BobberButton:ApplyScale()
     return true
 end
 
+function BobberButton:ApplyLook()
+    local cfg = ns.db and ns.db.settings and ns.db.settings.button
+    if status then
+        if cfg and cfg.statusText == false then
+            status:Hide()
+        else
+            status:Show()
+        end
+    end
+    if button and button.HotKey then
+        if cfg and cfg.hotkey == false then
+            button.HotKey:Hide()
+        else
+            button.HotKey:Show()
+        end
+    end
+end
+
+local function applyShown(shown)
+    if not button then
+        return
+    end
+    if InCombatLockdown() then
+        pendingShown = shown
+        return
+    end
+    pendingShown = nil
+    button:SetShown(shown)
+    -- Keep the saved state in sync so a reload shows what the player saw.
+    if not ns.readOnlyData and ns.db then
+        ns.db.settings.button.shown = shown
+    end
+end
+
 -- Called by FishingMode; nudges players who have not bound the key yet.
 function ns.FishingModeChanged(active)
+    local cfg = ns.db and ns.db.settings and ns.db.settings.button
+    if cfg and cfg.showInFishingMode == true then
+        applyShown(active and true or false)
+    end
     if active and not boundKey() then
         ns:Print(L.TIP_NO_KEY)
     end
@@ -316,6 +360,14 @@ ns:RegisterEvent("PLAYER_REGEN_DISABLED", function()
         ClearOverrideBindings(button)
         setCastAction()
         bobberOut = false
+    end
+end)
+
+ns:RegisterEvent("PLAYER_REGEN_ENABLED", function()
+    if pendingShown ~= nil then
+        local shown = pendingShown
+        pendingShown = nil
+        applyShown(shown)
     end
 end)
 

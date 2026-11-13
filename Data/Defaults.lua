@@ -47,11 +47,16 @@ ns.defaults = {
             x = 0,
             y = -150,
             scale = 1,
+            statusText = true,
+            hotkey = true,
+            showInFishingMode = false,
         },
         alert = {
             sound = true,
             flash = true,
             dim = 30,
+            boostSFX = true,
+            restoreDelay = 10,
         },
         bags = {
             warn = true,
@@ -60,6 +65,7 @@ ns.defaults = {
         lure = {
             warn = true,
             sound = true,
+            button = true,
         },
         minimap = {
             hide = false,
@@ -69,6 +75,9 @@ ns.defaults = {
             point = "CENTER",
             x = 0,
             y = 0,
+        },
+        session = {
+            resetOnLogin = true,
         },
     },
 }

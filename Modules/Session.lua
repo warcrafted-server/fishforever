@@ -206,6 +206,10 @@ end)
 
 ns:RegisterEvent("PLAYER_ENTERING_WORLD", function(_, _, isInitialLogin, isReloadingUi)
     if isInitialLogin == true and isReloadingUi ~= true then
-        Session:Reset()
+        local settings = ns.db and ns.db.settings
+        local sessionSettings = settings and settings.session
+        if not (sessionSettings and sessionSettings.resetOnLogin == false) then
+            Session:Reset()
+        end
     end
 end)
