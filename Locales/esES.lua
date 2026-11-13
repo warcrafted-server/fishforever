@@ -23,8 +23,7 @@ local translations = {
     MSG_HELP_HINT = "Escribe /ff help para ver los comandos disponibles.",
     MSG_VERSION = "Versión %s.",
     VERSION_UNKNOWN = "desconocida",
-    SLASH_HELP_STATS = "Muestra cuántas capturas hay registradas y sin compartir.",
-    MSG_STATS = "Capturas registradas y sin compartir: %d.",
+    SLASH_HELP_STATS = "Muestra u oculta la ventana de la sesión de pesca.",
     MSG_DATA_NEWER = "Tus datos guardados son de una versión más nueva de FishForever. No se modificarán; actualiza el addon.",
 
     MSG_DIAG_IN_COMBAT = "El diagnóstico no puede ejecutarse en combate. Inténtalo de nuevo al salir.",
@@ -51,6 +50,7 @@ local translations = {
     TIP_NO_KEY = "Asigna una tecla en Atajos de teclado > Accesorios > FishForever para recoger con una pulsación.",
     TIP_MINIMAP_LEFT = "Clic izquierdo: muestra u oculta el botón flotador.",
     TIP_MINIMAP_RIGHT = "Clic derecho: activa o desactiva el modo pesca.",
+    TIP_MINIMAP_SHIFT = "Mayús + clic izquierdo: estadísticas de la sesión.",
     TIP_MINIMAP_DRAG = "Arrastrar: mover alrededor del minimapa.",
     STATUS_MINIMAP_ON = "Modo pesca: activado.",
     STATUS_MINIMAP_OFF = "Modo pesca: desactivado.",
@@ -72,6 +72,20 @@ local translations = {
     CONSENT_SHARE_GUILD = "Compartir con mi hermandad",
     CONSENT_NOTE = "Solo ubicaciones de bancos, qué se pesca y dónde, y recuentos. Nunca el nombre de tu personaje.",
     SLASH_HELP_PRIVACY = "Muestra el aviso de privacidad y las opciones de compartir.",
+
+    STATS_TITLE = "Sesión de pesca",
+    STATS_TIME = "Tiempo pescando",
+    STATS_CASTS = "Lanzamientos",
+    STATS_CATCHES = "Capturas",
+    STATS_ESCAPES = "Escapados",
+    STATS_PER_HOUR = "Capturas por hora",
+    STATS_SUCCESS = "Éxito",
+    STATS_ITEMS = "Pescado",
+    STATS_MORE = "+%d más",
+    STATS_EMPTY = "Aún no has pescado nada.",
+    STATS_RESET = "Reiniciar",
+    STATS_RESET_CONFIRM = "¿Seguro?",
+    STATS_CLOSE = "x",
 }
 
 for key, value in pairs(translations) do

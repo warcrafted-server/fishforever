@@ -134,7 +134,7 @@ local function recordLoot()
     for slot = 1, (GetNumLootItems() or 0) do
         if not LootSlotHasItem or LootSlotHasItem(slot) then
             local itemID = itemIDFromLink(GetLootSlotLink(slot))
-            local _, _, quantity = GetLootSlotInfo(slot)
+            local _, _, quantity, _, quality = GetLootSlotInfo(slot)
             if isSecret(quantity) or type(quantity) ~= "number" then
                 quantity = 1
             end
@@ -146,11 +146,17 @@ local function recordLoot()
                 end
                 entry.total = entry.total + quantity
                 got = got + 1
+                if ns.modules.Session then
+                    ns.modules.Session:AddCatch(itemID, quantity, quality)
+                end
             end
         end
     end
     if got > 0 then
         recordSpot(finds, mapID, x, y, time())
+        if ns.modules.Session then
+            ns.modules.Session:CountCatch()
+        end
     end
 end
 
@@ -212,5 +218,7 @@ ns:RegisterEvent("LOOT_CLOSED", function()
 end)
 
 ns:RegisterSlashCommand("stats", function()
-    ns:Print(ns.L.MSG_STATS:format(Recorder:PendingCount()))
+    if ns.UI and ns.UI.StatsWindow then
+        ns.UI.StatsWindow:Toggle()
+    end
 end, "SLASH_HELP_STATS")

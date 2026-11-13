@@ -96,6 +96,7 @@ local function showTooltip(owner)
     GameTooltip:AddLine(L.ADDON_NAME, palette.title[1], palette.title[2], palette.title[3])
     GameTooltip:AddLine(L.TIP_MINIMAP_LEFT, 1, 1, 1, true)
     GameTooltip:AddLine(L.TIP_MINIMAP_RIGHT, 1, 1, 1, true)
+    GameTooltip:AddLine(L.TIP_MINIMAP_SHIFT, 1, 1, 1, true)
     GameTooltip:AddLine(L.TIP_MINIMAP_DRAG, palette.textDim[1], palette.textDim[2], palette.textDim[3], true)
 
     local active = ns.modules.FishingMode and ns.modules.FishingMode:IsActive()
@@ -152,6 +153,10 @@ local function createButton()
     b:SetScript("OnClick", function(_, mouseButton)
         if mouseButton == "RightButton" then
             ns.modules.FishingMode:Toggle()
+        elseif type(IsShiftKeyDown) == "function" and IsShiftKeyDown() then
+            if ns.UI and ns.UI.StatsWindow then
+                ns.UI.StatsWindow:Toggle()
+            end
         else
             ns.modules.BobberButton:SetShown(not ns.db.settings.button.shown)
         end
