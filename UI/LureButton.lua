@@ -124,28 +124,47 @@ local function updateAttributes(force)
     applyAttributes(itemID)
 end
 
+-- A soft pulsing gold frame: the native proc glow is too loud for a reminder.
+local pulse
+local function createPulse()
+    local frame = button:CreateTexture(nil, "OVERLAY", nil, 7)
+    local ok = type(frame.SetAtlas) == "function" and pcall(frame.SetAtlas, frame, "UI-HUD-ActionBar-IconFrame-Mouseover")
+    if ok then
+        frame:SetAllPoints(button)
+    else
+        frame:SetPoint("TOPLEFT", -2, 2)
+        frame:SetPoint("BOTTOMRIGHT", 2, -2)
+        frame:SetColorTexture(1, 0.82, 0.2, 0.35)
+    end
+    frame:SetVertexColor(1, 0.82, 0.2)
+    frame:SetBlendMode("ADD")
+    frame:Hide()
+
+    local group = frame:CreateAnimationGroup()
+    group:SetLooping("BOUNCE")
+    local fade = group:CreateAnimation("Alpha")
+    fade:SetFromAlpha(0.25)
+    fade:SetToAlpha(0.9)
+    fade:SetDuration(0.9)
+    fade:SetSmoothing("IN_OUT")
+    pulse = { texture = frame, anim = group }
+end
+
 local function setGlow(on)
     on = on and true or false
-    if on == glowing then
+    if on == glowing or not button then
         return
     end
     glowing = on
-
-    local manager = ActionButtonSpellAlertManager
-    if manager and type(manager.ShowAlert) == "function" and type(manager.HideAlert) == "function" then
-        if on then
-            manager:ShowAlert(button)
-        else
-            manager:HideAlert(button)
-        end
-        return
+    if not pulse then
+        createPulse()
     end
-    if type(ActionButton_ShowOverlayGlow) == "function" and type(ActionButton_HideOverlayGlow) == "function" then
-        if on then
-            ActionButton_ShowOverlayGlow(button)
-        else
-            ActionButton_HideOverlayGlow(button)
-        end
+    if on then
+        pulse.texture:Show()
+        pulse.anim:Play()
+    else
+        pulse.anim:Stop()
+        pulse.texture:Hide()
     end
 end
 
@@ -233,7 +252,7 @@ local function create()
         return button ~= nil
     end
 
-    button = CreateFrame("Button", BUTTON_NAME, bobber, "SecureActionButtonTemplate,ActionButtonTemplate")
+    button = CreateFrame("Button", BUTTON_NAME, bobber, "ActionButtonTemplate,SecureActionButtonTemplate")
     button:SetScale(0.55)
     button:SetPoint("CENTER", bobber, "TOPRIGHT", -4, -4)
     button:SetFrameLevel((bobber:GetFrameLevel() or 1) + 2)

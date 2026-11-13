@@ -162,7 +162,7 @@ end
 local function create()
     local cfg = ns.db.settings.button
 
-    button = CreateFrame("Button", BUTTON_NAME, UIParent, "SecureActionButtonTemplate,ActionButtonTemplate")
+    button = CreateFrame("Button", BUTTON_NAME, UIParent, "ActionButtonTemplate,SecureActionButtonTemplate")
     button:SetScale(1.15 * (cfg.scale or 1))
     button:SetPoint(cfg.point or "CENTER", UIParent, cfg.point or "CENTER", cfg.x or 0, cfg.y or -150)
     button:SetFrameStrata("MEDIUM")
