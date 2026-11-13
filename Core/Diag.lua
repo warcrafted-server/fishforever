@@ -371,11 +371,36 @@ local function collectUI()
     return result
 end
 
+-- Free bag space and vendor prices for the bags-full warning and gold per hour.
+local PRICE_SAMPLES = { 6289, 6291, 6303, 6308, 6317, 21071 }
+
+local function collectEconomy()
+    local result = { freeSlots = {}, prices = {} }
+    if type(C_Container) == "table" and type(C_Container.GetContainerNumFreeSlots) == "function" then
+        for bag = 0, 4 do
+            local values = pack(pcall(C_Container.GetContainerNumFreeSlots, bag))
+            result.freeSlots[bag] = values[1] and { safe(values[2]), safe(values[3]) } or false
+        end
+    end
+    result.getItemInfo = type(C_Item) == "table" and type(C_Item.GetItemInfo) == "function"
+    result.globalGetItemInfo = type(GetItemInfo) == "function"
+    for i = 1, #PRICE_SAMPLES do
+        local itemID = PRICE_SAMPLES[i]
+        if result.getItemInfo then
+            local values = pack(pcall(C_Item.GetItemInfo, itemID))
+            result.prices[itemID] = values[1] and { name = safe(values[2]), sellPrice = safe(values[12]), stack = safe(values[9]) } or false
+        end
+    end
+    result.money = safeCall(GetMoney)
+    return result
+end
+
 local function collectSamples()
     return {
         inventory = collectInventory(),
         bags = collectBags(),
         ui = collectUI(),
+        economy = collectEconomy(),
         weaponEnchant = collectWeaponEnchant(),
         spells = collectSpells(),
         professions = collectProfessions(),

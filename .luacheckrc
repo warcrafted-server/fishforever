@@ -11,6 +11,8 @@ globals = {
 }
 
 read_globals = {
+    "GetItemInfo",
+    "GetMoney",
     "GameFontDisable",
     "GameFontHighlightSmall",
     "GameFontNormalHuge",
