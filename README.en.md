@@ -11,13 +11,14 @@ Fishing addon for **WoW Forever**: one-touch bobber button, tackle box with lure
 - **Fishing mode:** equips the fishing pole from your bags and gives your weapon and shield back when you leave. In combat it waits until combat ends.
 - **One key to cast and loot:** one press = one action. It is not a bot: it never casts or loots on its own.
 - **Loot goes straight to your bags.**
+- **Lures with one press:** the lure button (or its key) applies the best lure in your bags and shows its time left; it warns you when it runs out.
 - **Hear the bite:** while fishing, sound effects go up and music and ambience go down.
 - **Floating button** with a time ring and catch or escaped messages, plus a **minimap button**.
 - **Local catch log:** what you catch and where.
 
 - **Session stats:** time, catches per hour, success rate and what you caught by rarity.
 
-Coming soon: tackle box, zone advisor and a community map of fishing pools. See the full roadmap in [docs/ROADMAP.md](docs/ROADMAP.md).
+Coming soon: zone advisor and a community map of fishing pools. See the full roadmap in [docs/ROADMAP.md](docs/ROADMAP.md).
 
 ## Requirements
 
@@ -33,7 +34,8 @@ Coming soon: tackle box, zone advisor and a community map of fishing pools. See 
 1. Bind a key in **Key Bindings > AddOns > FishForever > Cast / loot**.
 2. Right-click the minimap button to enter fishing mode (equips the pole).
 3. Press the key to cast and, when a fish bites, press it again to loot. You can also loot by right-clicking the bobber.
-4. Right-click the minimap button to get your weapon and shield back.
+4. To apply a lure, bind a key in **AddOns > FishForever > Apply lure** or click the small button on the corner of the floating button.
+5. Right-click the minimap button to get your weapon and shield back.
 
 Left-click the minimap button to show or hide the floating button; Shift + drag moves it.
 
