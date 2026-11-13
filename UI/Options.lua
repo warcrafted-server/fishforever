@@ -135,7 +135,9 @@ local function registerPanel()
 
     addHeader(layout, "OPT_SEC_BAGS")
     addCheckbox(newCategory, "FishForever_BagsWarn", "warn", settings.bags, true, "OPT_BAGS_WARN", "OPT_BAGS_WARN_TIP")
-    addSlider(newCategory, "FishForever_BagsThreshold", "threshold", settings.bags, 5, "OPT_BAGS_THRESHOLD", "OPT_BAGS_THRESHOLD_TIP", 1, 20, 1)
+    addSlider(newCategory, "FishForever_BagsThreshold", "threshold", settings.bags, 5, "OPT_BAGS_THRESHOLD", "OPT_BAGS_THRESHOLD_TIP", 1, 20, 1, function(value)
+        return tostring(math.floor(tonumber(value) or 0))
+    end)
 
     addHeader(layout, "OPT_SEC_MINIMAP")
     if type(Settings.RegisterProxySetting) == "function" then
