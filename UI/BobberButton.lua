@@ -198,6 +198,11 @@ local function create()
     if button.Count then
         button.Count:Hide()
     end
+    -- The native mouseover frame is very bright; keep it as a hint only.
+    local highlight = button:GetHighlightTexture()
+    if highlight then
+        highlight:SetAlpha(0.35)
+    end
     if button.Name then
         button.Name:Hide()
     end

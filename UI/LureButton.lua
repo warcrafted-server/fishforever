@@ -266,6 +266,11 @@ local function create()
     end
     icon:SetTexture(FALLBACK_ICON)
 
+    -- The native mouseover frame is very bright; keep it as a hint only.
+    local highlight = button:GetHighlightTexture()
+    if highlight then
+        highlight:SetAlpha(0.35)
+    end
     countText = button.Count
 
     timerText = button:CreateFontString(nil, "OVERLAY")
