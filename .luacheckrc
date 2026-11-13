@@ -11,6 +11,10 @@ globals = {
 }
 
 read_globals = {
+    "GameFontNormalSmall",
+    "ActionButton_HideOverlayGlow",
+    "ActionButton_ShowOverlayGlow",
+    "ActionButtonSpellAlertManager",
     "C_Texture",
     "GetBindingText",
     "PlaySound",

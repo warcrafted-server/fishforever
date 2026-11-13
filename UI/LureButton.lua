@@ -3,7 +3,6 @@ local ADDON, ns = ...
 local BUTTON_NAME = "FishForeverLureButton"
 local BINDING = "CLICK " .. BUTTON_NAME .. ":LeftButton"
 local MAIN_HAND = 16
-local SIZE = 22
 local FALLBACK_ICON = 136245
 
 local L = ns.L
@@ -12,9 +11,10 @@ local palette = Theme.palette
 
 _G["BINDING_NAME_" .. BINDING] = L.BINDING_LURE
 
-local button, icon, timerText
+local button, icon, timerText, countText
 local appliedItemID
 local pendingUpdate = false
+local glowing = false
 
 local function isSecret(value)
     if type(issecretvalue) ~= "function" then
@@ -35,6 +35,20 @@ local function boundKey()
     end
     if type(GetBindingText) == "function" then
         local ok, text = pcall(GetBindingText, key)
+        if ok and type(text) == "string" and text ~= "" then
+            return text
+        end
+    end
+    return key
+end
+
+local function keyLabel()
+    local key = GetBindingKey(BINDING)
+    if not key then
+        return ""
+    end
+    if type(GetBindingText) == "function" then
+        local ok, text = pcall(GetBindingText, key, true)
         if ok and type(text) == "string" and text ~= "" then
             return text
         end
@@ -110,12 +124,40 @@ local function updateAttributes(force)
     applyAttributes(itemID)
 end
 
+local function setGlow(on)
+    on = on and true or false
+    if on == glowing then
+        return
+    end
+    glowing = on
+
+    local manager = ActionButtonSpellAlertManager
+    if manager and type(manager.ShowAlert) == "function" and type(manager.HideAlert) == "function" then
+        if on then
+            manager:ShowAlert(button)
+        else
+            manager:HideAlert(button)
+        end
+        return
+    end
+    if type(ActionButton_ShowOverlayGlow) == "function" and type(ActionButton_HideOverlayGlow) == "function" then
+        if on then
+            ActionButton_ShowOverlayGlow(button)
+        else
+            ActionButton_HideOverlayGlow(button)
+        end
+    end
+end
+
 local function refresh()
     if not button then
         return
     end
     local lure = ns.modules.Lure
-    local itemID = lure and lure:FindBest()
+    local itemID, bonus, count
+    if lure then
+        itemID, bonus, count = lure:FindBest()
+    end
 
     local iconID
     if itemID and C_Item and type(C_Item.GetItemIconByID) == "function" then
@@ -127,6 +169,10 @@ local function refresh()
     icon:SetTexture(iconID or FALLBACK_ICON)
     icon:SetDesaturated(itemID == nil)
 
+    if countText then
+        countText:SetText(count and count > 0 and tostring(count) or "")
+    end
+
     local pole = isPoleEquipped()
     local hasLure, remaining = false, 0
     if lure then
@@ -137,16 +183,13 @@ local function refresh()
         local duration = lure and lure:Duration() or 0
         local fraction = duration > 0 and remaining / duration or 0
         local color = Theme:TimerColor(fraction)
-        button:SetBackdropBorderColor(color[1], color[2], color[3], 1)
         timerText:SetText(formatRemaining(remaining))
         timerText:SetTextColor(color[1], color[2], color[3])
-    elseif pole then
-        button:SetBackdropBorderColor(palette.orange[1], palette.orange[2], palette.orange[3], 1)
-        timerText:SetText("")
     else
-        button:SetBackdropBorderColor(palette.windowBorder[1], palette.windowBorder[2], palette.windowBorder[3], 1)
         timerText:SetText("")
     end
+
+    setGlow(pole and not hasLure and itemID ~= nil)
 end
 
 local function showTooltip(self)
@@ -190,23 +233,33 @@ local function create()
         return button ~= nil
     end
 
-    button = CreateFrame("Button", BUTTON_NAME, bobber, "SecureActionButtonTemplate,BackdropTemplate")
-    button:SetSize(SIZE, SIZE)
-    button:SetPoint("BOTTOMLEFT", bobber, "TOPRIGHT", -8, -8)
+    button = CreateFrame("Button", BUTTON_NAME, bobber, "SecureActionButtonTemplate,ActionButtonTemplate")
+    button:SetScale(0.55)
+    button:SetPoint("CENTER", bobber, "TOPRIGHT", -4, -4)
     button:SetFrameLevel((bobber:GetFrameLevel() or 1) + 2)
     button:RegisterForClicks("AnyUp", "AnyDown")
-    button:SetBackdrop(Theme.backdrop)
-    button:SetBackdropColor(palette.windowBg[1], palette.windowBg[2], palette.windowBg[3], 0.95)
-    button:SetBackdropBorderColor(palette.windowBorder[1], palette.windowBorder[2], palette.windowBorder[3], 1)
 
-    icon = button:CreateTexture(nil, "ARTWORK")
-    icon:SetPoint("TOPLEFT", 2, -2)
-    icon:SetPoint("BOTTOMRIGHT", -2, 2)
+    icon = button.icon
+    if not icon then
+        icon = button:CreateTexture(nil, "ARTWORK")
+        icon:SetPoint("TOPLEFT", 2, -2)
+        icon:SetPoint("BOTTOMRIGHT", -2, 2)
+    end
     icon:SetTexture(FALLBACK_ICON)
 
+    countText = button.Count
+
     timerText = button:CreateFontString(nil, "OVERLAY")
-    timerText:SetFont(Theme.font.small[1], Theme.font.small[2], "OUTLINE")
+    Theme:SetFont(timerText, "GameFontHighlightSmallOutline", "small", "OUTLINE")
     timerText:SetPoint("BOTTOM", button, "BOTTOM", 0, 1)
+
+    if button.HotKey then
+        local function updateHotKey()
+            button.HotKey:SetText(keyLabel())
+        end
+        updateHotKey()
+        ns:RegisterEvent("UPDATE_BINDINGS", updateHotKey)
+    end
 
     button:SetScript("OnEnter", showTooltip)
     button:SetScript("OnLeave", function()
