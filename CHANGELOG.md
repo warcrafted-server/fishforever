@@ -5,6 +5,14 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.3.0] - 2026-11-15
+
+### Añadido
+
+- Botón de cebo junto al botón flotador con su propio atajo («Poner cebo» en Accesorios > FishForever): una pulsación pone en la caña el mejor cebo de las bolsas. Muestra cuántos cebos quedan y el tiempo restante del cebo puesto (verde, ámbar y rojo); el borde se vuelve naranja con la caña sin cebo.
+- Aviso con sonido cuando el cebo se acaba en modo pesca, con la tecla para poner otro.
+- `/ff diag` incluye los objetos de las bolsas y el cebo de la caña.
+
 ## [0.2.0] - 2026-11-14
 
 ### Añadido

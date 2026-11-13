@@ -1,15 +1,11 @@
-## 0.2.0 (2026-11-14)
+## 0.3.0 (2026-11-15)
 
 ### Added
-- Fishing session window (`/ff stats` or Shift + left click on the minimap button): time fishing, casts, catches, fish that got away, catches per hour, success rate and a list of what you caught with icon and rarity colour. It survives a UI reload and starts fresh when you log in; Reset asks for confirmation and never deletes your catch log.
+- Lure button next to the floating button, with its own key (Key Bindings > AddOns > FishForever > Apply lure): one press applies the best lure in your bags to the fishing pole. It shows how many lures you have and the time left on the pole (green, amber, red); its border turns orange when the pole has no lure.
+- A warning with a sound when your lure runs out in fishing mode, telling you the key to apply another.
 
-### Changed
-- `/ff stats` now opens the session window.
-
-## 0.2.0 (2026-11-14)
+## 0.3.0 (2026-11-15)
 
 ### Añadido
-- Ventana de la sesión de pesca (`/ff stats` o Mayús + clic izquierdo en el botón del minimapa): tiempo pescando, lanzamientos, capturas, escapados, capturas por hora, porcentaje de éxito y lista de lo pescado con icono y color de rareza. Se mantiene al recargar la interfaz y empieza de cero al entrar al juego; «Reiniciar» pide confirmación y no borra el registro de capturas.
-
-### Cambiado
-- `/ff stats` ahora abre la ventana de la sesión.
+- Botón de cebo junto al botón flotador, con su propia tecla (Atajos de teclado > Accesorios > FishForever > Poner cebo): una pulsación pone en la caña el mejor cebo de tus bolsas. Muestra cuántos cebos te quedan y el tiempo restante en la caña (verde, ámbar y rojo); su borde se vuelve naranja si la caña no lleva cebo.
+- Aviso con sonido cuando el cebo se acaba en modo pesca, con la tecla para poner otro.
