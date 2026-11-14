@@ -5,6 +5,24 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.4.0] - 2026-11-15
+
+### Añadido
+
+- Aviso en el centro de la pantalla al lanzar con pocos huecos en las bolsas (5 o menos, en ámbar) o con las bolsas llenas (en naranja), como mucho una vez por minuto. Nunca bloquea el lanzamiento.
+- Oro por hora en la ventana de la sesión (cuarta tarjeta) y valor de venta total de lo pescado.
+- `/ff diag` incluye los huecos libres de las bolsas y precios de venta de ejemplo.
+
+### Cambiado
+
+- Aspecto nativo del juego: el botón flotador y el de cebo son botones de acción como los de tus barras (marco del juego, tecla asignada en la esquina, barrido de tiempo y destello al capturar). El botón de cebo late en dorado cuando llevas la caña sin cebo y te quedan en las bolsas.
+- La ventana de la sesión usa el marco de ventana del juego, con retrato, título y cierre nativos, tarjetas con capturas, capturas por hora y éxito, y filas con el icono enmarcado por rareza, barra de proporción y tooltip del objeto. «Reiniciar» es el botón rojo del juego.
+
+### Corregido
+
+- El botón flotador ya no se queda iluminado como pulsado al lanzar o recoger con la tecla.
+- El aviso «Se acabó el cebo» ya no sale al entrar o salir del modo pesca; solo cuando el cebo se agota de verdad.
+
 ## [0.3.0] - 2026-11-14
 
 ### Añadido

@@ -4,7 +4,7 @@
 
 Addon de pesca para **WoW Forever**: botón flotador de un toque, caja de aparejos con temporizador de cebos, estadísticas y mapa colaborativo de bancos de peces.
 
-> **Estado:** 0.1.0, primera versión pública. Cada día se van añadiendo novedades ya probadas en el juego.
+> **Estado:** 0.4.0. Cada día se van añadiendo novedades ya probadas en el juego.
 
 ## Qué hace
 
@@ -13,10 +13,11 @@ Addon de pesca para **WoW Forever**: botón flotador de un toque, caja de aparej
 - **El botín va directo a las bolsas.**
 - **Cebos con una pulsación:** el botón de cebo (o su tecla) pone el mejor cebo de tus bolsas y muestra su tiempo restante; avisa cuando se acaba.
 - **Oye la picada:** al pescar suben los efectos de sonido y bajan la música y el ambiente.
-- **Botón flotador** con anillo de tiempo y aviso de captura o pez escapado, y **botón en el minimapa**.
+- **Aspecto nativo:** botones de acción como los de tus barras (tecla, barrido de tiempo, destello al capturar), y **botón en el minimapa**.
+- **Aviso de bolsas** al lanzar con pocos huecos libres.
 - **Registro local de capturas:** qué pescas y dónde.
 
-- **Estadísticas de la sesión:** tiempo, capturas por hora, éxito y lo pescado por rareza.
+- **Estadísticas de la sesión:** tiempo, capturas y oro por hora, éxito y lo pescado por rareza.
 
 Próximamente: asesor de zona y mapa colaborativo de bancos. La hoja de ruta completa está en [docs/ROADMAP.md](docs/ROADMAP.md).
 

@@ -11,6 +11,20 @@ globals = {
 }
 
 read_globals = {
+    "GetCoinTextureString",
+    "C_CurrencyInfo",
+    "UIErrorsFrame",
+    "GetItemInfo",
+    "GetMoney",
+    "GameFontDisable",
+    "GameFontHighlightSmall",
+    "GameFontNormalHuge",
+    "ButtonFrameTemplate_HideButtonBar",
+    "GameFontNormalSmall",
+    "ActionButton_HideOverlayGlow",
+    "ActionButton_ShowOverlayGlow",
+    "ActionButtonSpellAlertManager",
+    "C_Texture",
     "GetBindingText",
     "PlaySound",
     "SOUNDKIT",

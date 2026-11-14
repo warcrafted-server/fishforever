@@ -4,7 +4,7 @@
 
 Fishing addon for **WoW Forever**: one-touch bobber button, tackle box with lure timers, session stats and a community map of fishing pools.
 
-> **Status:** 0.1.0, first public release. New features, already tested in game, are added day by day.
+> **Status:** 0.4.0. New features, already tested in game, are added day by day.
 
 ## Features
 
@@ -13,10 +13,11 @@ Fishing addon for **WoW Forever**: one-touch bobber button, tackle box with lure
 - **Loot goes straight to your bags.**
 - **Lures with one press:** the lure button (or its key) applies the best lure in your bags and shows its time left; it warns you when it runs out.
 - **Hear the bite:** while fishing, sound effects go up and music and ambience go down.
-- **Floating button** with a time ring and catch or escaped messages, plus a **minimap button**.
+- **Native look:** action buttons like the ones on your bars (key, time sweep, flash on catch), plus a **minimap button**.
+- **Bag warning** when you cast with few free slots.
 - **Local catch log:** what you catch and where.
 
-- **Session stats:** time, catches per hour, success rate and what you caught by rarity.
+- **Session stats:** time, catches and gold per hour, success rate and what you caught by rarity.
 
 Coming soon: zone advisor and a community map of fishing pools. See the full roadmap in [docs/ROADMAP.md](docs/ROADMAP.md).
 

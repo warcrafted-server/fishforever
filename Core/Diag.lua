@@ -326,10 +326,81 @@ local function collectWeaponEnchant()
     return result
 end
 
+-- Native templates and atlases available for a modern look.
+local UI_TEMPLATES = {
+    "ActionButtonTemplate", "SecureActionButtonTemplate,ActionButtonTemplate",
+    "ButtonFrameTemplate", "PortraitFrameTemplate", "DefaultPanelTemplate", "DefaultPanelFlatTemplate",
+    "UIPanelButtonTemplate", "UIPanelCloseButton", "UIPanelCloseButtonDefaultAnchors",
+    "PanelTabButtonTemplate", "TooltipBackdropTemplate", "NineSlicePanelTemplate",
+    "ActionButtonSpellAlertTemplate", "UIMenuButtonStretchTemplate", "SharedButtonSmallTemplate",
+}
+
+local UI_ATLASES = {
+    "UI-HUD-ActionBar-IconFrame", "UI-HUD-ActionBar-IconFrame-Mouseover", "UI-HUD-ActionBar-IconFrame-Down",
+    "UI-HUD-ActionBar-IconFrame-Slot", "UI-HUD-ActionBar-IconFrame-Flash", "UI-HUD-ActionBar-IconFrame-Border",
+    "UI-DiamondDialogBox-Border", "UI-DialogBox-Background-Dark", "PetList-ButtonBackground",
+    "PetList-ButtonSelect", "PetList-ButtonHighlight", "Options_List_Active", "Options_List_Hover",
+    "UI-Frame-Bar-Fill-Green", "UI-CastingBar-Full-Standard", "UI-CastingBar-Background",
+    "ui-castingbar-filling-channel", "ui-castingbar-tier1-empower", "UI-HUD-MicroMenu-Questlog-Up",
+    "Professions-Icon-Quality-Tier1", "loottoast-itemborder-gold", "loottab-set-itemborder-white",
+    "auctionhouse-itemicon-border-white", "auctionhouse-itemicon-border-uncommon", "auctionhouse-itemicon-border-rare",
+    "CircleMaskScalable", "UI-Frame-IconMask", "minimap-trackingborder", "ui-hud-minimap-button",
+    "common-dropdown-c-button", "common-button-square-gray-up", "128-RedButton-UP", "128-GoldRedButton-UP",
+    "UI-QuestTrackerButton-Secondary-Collapse", "groupfinder-icon-redx", "tooltip-glues-NineSlice-CornerTopLeft",
+}
+
+local function collectUI()
+    local result = { templates = {}, atlases = {} }
+    for i = 1, #UI_TEMPLATES do
+        local name = UI_TEMPLATES[i]
+        local ok, frame = pcall(CreateFrame, "Button", nil, UIParent, name)
+        result.templates[name] = ok and frame ~= nil
+        if ok and frame then
+            frame:Hide()
+        end
+    end
+    local getAtlas = type(C_Texture) == "table" and C_Texture.GetAtlasInfo
+    result.atlasAPI = type(getAtlas) == "function"
+    if result.atlasAPI then
+        for i = 1, #UI_ATLASES do
+            local name = UI_ATLASES[i]
+            local ok, info = pcall(getAtlas, name)
+            result.atlases[name] = ok and type(info) == "table"
+        end
+    end
+    return result
+end
+
+-- Free bag space and vendor prices for the bags-full warning and gold per hour.
+local PRICE_SAMPLES = { 6289, 6291, 6303, 6308, 6317, 21071 }
+
+local function collectEconomy()
+    local result = { freeSlots = {}, prices = {} }
+    if type(C_Container) == "table" and type(C_Container.GetContainerNumFreeSlots) == "function" then
+        for bag = 0, 4 do
+            local values = pack(pcall(C_Container.GetContainerNumFreeSlots, bag))
+            result.freeSlots[bag] = values[1] and { safe(values[2]), safe(values[3]) } or false
+        end
+    end
+    result.getItemInfo = type(C_Item) == "table" and type(C_Item.GetItemInfo) == "function"
+    result.globalGetItemInfo = type(GetItemInfo) == "function"
+    for i = 1, #PRICE_SAMPLES do
+        local itemID = PRICE_SAMPLES[i]
+        if result.getItemInfo then
+            local values = pack(pcall(C_Item.GetItemInfo, itemID))
+            result.prices[itemID] = values[1] and { name = safe(values[2]), sellPrice = safe(values[12]), stack = safe(values[9]) } or false
+        end
+    end
+    result.money = safeCall(GetMoney)
+    return result
+end
+
 local function collectSamples()
     return {
         inventory = collectInventory(),
         bags = collectBags(),
+        ui = collectUI(),
+        economy = collectEconomy(),
         weaponEnchant = collectWeaponEnchant(),
         spells = collectSpells(),
         professions = collectProfessions(),

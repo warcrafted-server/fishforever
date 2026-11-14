@@ -9,7 +9,6 @@ local ADDON, ns = ...
 local BUTTON_NAME = "FishForeverBobberButton"
 local BINDING = "CLICK " .. BUTTON_NAME .. ":LeftButton"
 local FISHING_SPELL = 7620
-local SIZE = 52
 local RESULT_TIME = 2
 
 local L = ns.L
@@ -56,13 +55,23 @@ local function boundKey()
     return key
 end
 
+local function keyLabel()
+    local key = GetBindingKey(BINDING)
+    if not key then
+        return ""
+    end
+    if type(GetBindingText) == "function" then
+        local ok, text = pcall(GetBindingText, key, true)
+        if ok and type(text) == "string" and text ~= "" then
+            return text
+        end
+    end
+    return key
+end
+
 local function lootHint()
     local key = boundKey()
     return key and L.STATUS_LOOT_KEY:format(key) or L.STATUS_LOOT_MOUSE
-end
-
-local function setBorder(color)
-    button:SetBackdropBorderColor(color[1], color[2], color[3], 1)
 end
 
 local function setStatus(text, color)
@@ -73,6 +82,15 @@ local function setStatus(text, color)
 end
 
 -- Override bindings are protected: only touched out of combat.
+-- The key that cast is still held when its binding is swapped to
+-- INTERACTTARGET (and back after looting), so the button never sees the key
+-- release and stays drawn as pushed. Reset the pressed look on every swap.
+local function releasePressed()
+    if button and not InCombatLockdown() then
+        button:SetButtonState("NORMAL")
+    end
+end
+
 local function armLoot()
     if InCombatLockdown() or bobberOut then
         return
@@ -84,6 +102,7 @@ local function armLoot()
     -- client has no /interact, so only a key (or a click on the bobber) loots.
     button:SetAttribute("type1", nil)
     bobberOut = true
+    releasePressed()
 end
 
 local function disarmLoot()
@@ -93,12 +112,28 @@ local function disarmLoot()
     ClearOverrideBindings(button)
     setCastAction()
     bobberOut = false
+    releasePressed()
 end
 
 local function showResult(text, color)
     resultUntil = GetTime() + RESULT_TIME
     setStatus(text, color)
-    setBorder(color)
+end
+
+local function flashCatch()
+    if not (button and button.Flash) then
+        return
+    end
+    button.Flash:Show()
+    if type(C_Timer) == "table" and type(C_Timer.After) == "function" then
+        C_Timer.After(0.3, function()
+            if button and button.Flash then
+                button.Flash:Hide()
+            end
+        end)
+    else
+        button.Flash:Hide()
+    end
 end
 
 local function refresh()
@@ -107,11 +142,11 @@ local function refresh()
         local total = channel.endTime - channel.startTime
         local remaining = total > 0 and math.max(0, (channel.endTime - now) / total) or 0
         local color = Theme:TimerColor(remaining)
-        cooldown:SetSwipeColor(color[1], color[2], color[3], 0.75)
-        setBorder(color)
+        if cooldown then
+            cooldown:SetSwipeColor(color[1], color[2], color[3], 0.75)
+        end
         setStatus(lootHint(), color)
     elseif now >= resultUntil then
-        setBorder(palette.windowBorder)
         setStatus("")
     end
 end
@@ -138,9 +173,8 @@ end
 local function create()
     local cfg = ns.db.settings.button
 
-    button = CreateFrame("Button", BUTTON_NAME, UIParent, "SecureActionButtonTemplate,BackdropTemplate")
-    button:SetSize(SIZE, SIZE)
-    button:SetScale(cfg.scale or 1)
+    button = CreateFrame("Button", BUTTON_NAME, UIParent, "ActionButtonTemplate,SecureActionButtonTemplate")
+    button:SetScale(1.15 * (cfg.scale or 1))
     button:SetPoint(cfg.point or "CENTER", UIParent, cfg.point or "CENTER", cfg.x or 0, cfg.y or -150)
     button:SetFrameStrata("MEDIUM")
     button:SetClampedToScreen(true)
@@ -151,29 +185,46 @@ local function create()
     -- which is reserved for toggling fishing mode.
     setCastAction()
 
-    button:SetBackdrop(Theme.backdrop)
-    button:SetBackdropColor(palette.windowBg[1], palette.windowBg[2], palette.windowBg[3], 0.95)
-    setBorder(palette.windowBorder)
-
-    local icon = button:CreateTexture(nil, "ARTWORK")
-    icon:SetPoint("TOPLEFT", 3, -3)
-    icon:SetPoint("BOTTOMRIGHT", -3, 3)
+    local icon = button.icon
+    if not icon then
+        icon = button:CreateTexture(nil, "ARTWORK")
+        icon:SetPoint("TOPLEFT", 2, -2)
+        icon:SetPoint("BOTTOMRIGHT", -2, 2)
+    end
     icon:SetTexture(136245)
-    icon:SetTexCoord(0.08, 0.92, 0.08, 0.92)
 
-    cooldown = CreateFrame("Cooldown", nil, button, "CooldownFrameTemplate")
-    cooldown:SetAllPoints(icon)
-    cooldown:SetDrawEdge(false)
-    cooldown:SetReverse(true)
-    cooldown:SetHideCountdownNumbers(false)
-
-    local highlight = button:CreateTexture(nil, "HIGHLIGHT")
-    highlight:SetAllPoints(icon)
-    highlight:SetColorTexture(1, 0.85, 0.5, 0.12)
+    cooldown = button.cooldown
+    if cooldown then
+        cooldown:SetDrawEdge(false)
+        cooldown:SetReverse(true)
+        cooldown:SetHideCountdownNumbers(false)
+    end
 
     status = button:CreateFontString(nil, "OVERLAY")
-    status:SetFont(Theme.font.label[1], Theme.font.label[2], "OUTLINE")
+    Theme:SetFont(status, "GameFontNormalSmall", "label")
+    status:SetShadowOffset(1, -1)
+    status:SetShadowColor(0, 0, 0, 1)
     status:SetPoint("TOP", button, "BOTTOM", 0, -4)
+
+    if button.Count then
+        button.Count:Hide()
+    end
+    -- The native mouseover frame is very bright; keep it as a hint only.
+    local highlight = button:GetHighlightTexture()
+    if highlight then
+        highlight:SetAlpha(0.35)
+    end
+    if button.Name then
+        button.Name:Hide()
+    end
+
+    if button.HotKey then
+        local function updateHotKey()
+            button.HotKey:SetText(keyLabel())
+        end
+        updateHotKey()
+        ns:RegisterEvent("UPDATE_BINDINGS", updateHotKey)
+    end
 
     button:HookScript("OnClick", function(_, mouse, down)
         if mouse == "RightButton" and not down then
@@ -225,7 +276,9 @@ ns:RegisterEvent("UNIT_SPELLCAST_CHANNEL_START", function(_, _, unit, _, spellID
     local _, _, _, startMS, endMS = UnitChannelInfo("player")
     if type(startMS) == "number" and type(endMS) == "number" then
         channel = { startTime = startMS / 1000, endTime = endMS / 1000 }
-        cooldown:SetCooldown(channel.startTime, channel.endTime - channel.startTime)
+        if cooldown then
+            cooldown:SetCooldown(channel.startTime, channel.endTime - channel.startTime)
+        end
     else
         channel = { startTime = GetTime(), endTime = GetTime() + 30 }
     end
@@ -237,7 +290,9 @@ ns:RegisterEvent("UNIT_SPELLCAST_CHANNEL_STOP", function(_, _, unit, _, spellID)
         return
     end
     channel = nil
-    cooldown:Clear()
+    if cooldown then
+        cooldown:Clear()
+    end
     disarmLoot()
 end)
 
@@ -253,6 +308,7 @@ end)
 ns:RegisterEvent("LOOT_OPENED", function()
     if type(IsFishingLoot) == "function" and IsFishingLoot() then
         showResult(L.STATUS_CAUGHT, palette.ok)
+        flashCatch()
     end
 end)
 
