@@ -29,6 +29,7 @@ local L = {
     MSG_FISH_IN_COMBAT = "Fishing mode cannot change in combat. It will be applied when combat ends.",
     MSG_FISH_NO_POLE = "No fishing pole found in your bags.",
     MSG_FISH_ENTERED = "Fishing mode enabled.",
+    MSG_TWO_COPIES = "%s is also enabled. Two copies of FishForever clash: disable one of them in the AddOns list.",
     MSG_FISH_EXITED = "Fishing mode disabled.",
     MSG_FISH_POLE_ALREADY = "You already had the pole equipped, so there is no weapon to give back.",
     MSG_FISH_NO_SAVED = "No weapon was saved when you entered fishing mode, so nothing was swapped back.",

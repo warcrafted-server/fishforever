@@ -94,3 +94,17 @@ ns:RegisterEvent("PLAYER_LOGIN", function()
         ns:OnEnable()
     end
 end)
+
+-- The published addon and the development copy share names, saved data and
+-- key bindings, so they must not run together.
+ns:RegisterEvent("PLAYER_LOGIN", function()
+    local isLoaded = (C_AddOns and C_AddOns.IsAddOnLoaded) or IsAddOnLoaded
+    if type(isLoaded) ~= "function" then
+        return
+    end
+    local other = ADDON == "FishForever" and "FishForeverDev" or "FishForever"
+    local ok, loaded = pcall(isLoaded, other)
+    if ok and loaded then
+        ns:Print(ns.L.MSG_TWO_COPIES:format(other))
+    end
+end)

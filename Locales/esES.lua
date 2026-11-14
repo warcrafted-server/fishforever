@@ -36,6 +36,7 @@ local translations = {
     MSG_FISH_IN_COMBAT = "El modo pesca no puede cambiar en combate. Se aplicará al terminar.",
     MSG_FISH_NO_POLE = "No hay ninguna caña de pescar en las bolsas.",
     MSG_FISH_ENTERED = "Modo pesca activado.",
+    MSG_TWO_COPIES = "%s también está activado. Dos copias de FishForever chocan entre sí: desactiva una en la lista de addons.",
     MSG_FISH_EXITED = "Modo pesca desactivado.",
     MSG_FISH_POLE_ALREADY = "Ya llevabas la caña equipada, así que no hay arma que devolver.",
     MSG_FISH_NO_SAVED = "Al entrar en modo pesca no se guardó ningún arma, así que no se ha cambiado nada.",
