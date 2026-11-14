@@ -5,6 +5,17 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.4.1] - 2026-11-15
+
+### Cambiado
+
+- El botón de cebo se oculta cuando no tienes cebos en las bolsas ni en la caña, y vuelve a aparecer al conseguir uno.
+
+### Añadido
+
+- Aviso al entrar al juego si el addon publicado y la copia de desarrollo están activos a la vez, porque chocan entre sí.
+- Al activar el modo pesca con la caña ya equipada, o al desactivarlo sin arma guardada, el addon lo explica en el chat en lugar de no hacer nada.
+
 ## [0.4.0] - 2026-11-14
 
 ### Añadido

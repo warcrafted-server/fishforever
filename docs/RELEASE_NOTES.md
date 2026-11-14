@@ -1,3 +1,21 @@
+## 0.4.1 (2026-11-15)
+
+### Changed
+- The lure button hides when you have no lures in your bags or on your pole, and comes back when you get one.
+
+### Added
+- A warning when you log in with the published addon and a development copy enabled at the same time, since they clash.
+- Fishing mode now tells you when it has no weapon to swap back (for example when the pole was already equipped) instead of doing nothing.
+
+## 0.4.1 (2026-11-15)
+
+### Cambiado
+- El botón de cebo se oculta cuando no tienes cebos en las bolsas ni en la caña, y vuelve a aparecer al conseguir uno.
+
+### Añadido
+- Aviso al entrar al juego si el addon publicado y una copia de desarrollo están activos a la vez, porque chocan entre sí.
+- El modo pesca ahora avisa cuando no tiene arma que devolver (por ejemplo, si la caña ya estaba equipada) en lugar de no hacer nada.
+
 ## 0.4.0 (2026-11-14)
 
 ### Added

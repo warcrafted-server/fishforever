@@ -15,7 +15,7 @@ Paste into the project description: English first, then Spanish. Updated on ever
 - **Fishing mode:** right-click the minimap button to equip your fishing pole from your bags; right-click again to put your weapon and shield back. In combat it waits until combat ends.
 - **One key to cast and loot:** bind a key in Key Bindings > AddOns > FishForever. Press it to cast; when a fish bites, press it again to loot. One press, one action: it never casts or loots on its own.
 - **Loot straight to your bags,** no loot window clicking.
-- **Lures with one press:** a small lure button next to the floating button (and its own key) applies the best lure in your bags, shows how many you have and the time left, and warns you when it runs out.
+- **Lures with one press:** a small lure button next to the floating button (and its own key) applies the best lure in your bags, shows how many you have and the time left, and warns you when it runs out. It hides itself when you have no lures.
 - **Hear the bite:** while fishing, sound effects go up and music and ambience go down, then everything returns to your settings.
 - **Native look:** the floating button and the lure button are action buttons like the ones on your bars, with your bound key, a time sweep (green, amber, red) and a flash when you catch something. The floating button also shows catch or escaped messages. Show or hide it with a left click on the minimap button. Clicking it casts; looting needs the key or a right click on the bobber.
 - **Bag warning:** when you cast with 5 or fewer free slots (or full bags) a message appears in the centre of the screen, at most once a minute. It never blocks the cast.
@@ -41,7 +41,7 @@ Free for non-commercial use under WNCL-1.0. Source: https://github.com/warcrafte
 - **Modo pesca:** clic derecho en el botón del minimapa para equipar la caña de tus bolsas; otro clic derecho devuelve el arma y el escudo. En combate espera a que termine.
 - **Una tecla para lanzar y recoger:** asígnala en Atajos de teclado > Accesorios > FishForever. Púlsala para lanzar y, cuando pique, otra vez para recoger. Una pulsación, una acción: nunca lanza ni recoge por su cuenta.
 - **El botín va directo a las bolsas,** sin hacer clic en la ventana de botín.
-- **Cebos con una pulsación:** un botón pequeño junto al botón flotador (y su propia tecla) pone el mejor cebo de tus bolsas, muestra cuántos te quedan y el tiempo restante, y avisa cuando se acaba.
+- **Cebos con una pulsación:** un botón pequeño junto al botón flotador (y su propia tecla) pone el mejor cebo de tus bolsas, muestra cuántos te quedan y el tiempo restante, y avisa cuando se acaba. Se oculta solo cuando no tienes cebos.
 - **Oye la picada:** al pescar suben los efectos de sonido y bajan la música y el ambiente; después todo vuelve a tus ajustes.
 - **Aspecto nativo:** el botón flotador y el de cebo son botones de acción como los de tus barras, con tu tecla asignada, barrido de tiempo (verde, ámbar y rojo) y destello al capturar. El botón flotador también avisa de captura o de pez escapado. Se muestra u oculta con clic izquierdo en el botón del minimapa. Un clic en él lanza; para recoger, la tecla o clic derecho sobre el corcho.
 - **Aviso de bolsas:** al lanzar con 5 huecos libres o menos (o con las bolsas llenas) sale un mensaje en el centro de la pantalla, como mucho una vez por minuto. Nunca bloquea el lanzamiento.

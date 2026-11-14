@@ -14,6 +14,7 @@ _G["BINDING_NAME_" .. BINDING] = L.BINDING_LURE
 local button, icon, timerText, countText
 local appliedItemID
 local pendingUpdate = false
+local pendingVisible
 local glowing = false
 
 local function isSecret(value)
@@ -209,6 +210,17 @@ local function refresh()
     end
 
     setGlow(pole and not hasLure and itemID ~= nil)
+
+    -- Nothing to apply and nothing on the pole: the button would sit there empty.
+    local want = itemID ~= nil or hasLure == true
+    if want ~= button:IsShown() then
+        if InCombatLockdown() then
+            pendingVisible = want
+        else
+            pendingVisible = nil
+            button:SetShown(want)
+        end
+    end
 end
 
 local function showTooltip(self)
@@ -334,6 +346,10 @@ ns:RegisterEvent("PLAYER_LOGIN", setup)
 ns:RegisterEvent("PLAYER_REGEN_ENABLED", function()
     if pendingUpdate then
         updateAttributes(true)
+    end
+    if pendingVisible ~= nil then
+        pendingVisible = nil
+        refresh()
     end
 end)
 
