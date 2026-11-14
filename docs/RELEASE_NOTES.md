@@ -1,4 +1,4 @@
-## 0.4.0 (2026-11-15)
+## 0.4.0 (2026-11-14)
 
 ### Added
 - Bag space warning in the centre of the screen when you cast with 5 or fewer free slots (amber) or with full bags (orange), at most once a minute. It never blocks the cast.
@@ -12,7 +12,7 @@
 - The floating button no longer stays lit as pressed after casting or looting with the key.
 - "Your lure ran out" no longer appears when entering or leaving fishing mode, only when the lure really runs out.
 
-## 0.4.0 (2026-11-15)
+## 0.4.0 (2026-11-14)
 
 ### Añadido
 - Aviso en el centro de la pantalla al lanzar con 5 huecos libres o menos (ámbar) o con las bolsas llenas (naranja), como mucho una vez por minuto. Nunca bloquea el lanzamiento.
