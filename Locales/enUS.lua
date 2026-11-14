@@ -30,6 +30,8 @@ local L = {
     MSG_FISH_NO_POLE = "No fishing pole found in your bags.",
     MSG_FISH_ENTERED = "Fishing mode enabled.",
     MSG_FISH_EXITED = "Fishing mode disabled.",
+    MSG_FISH_POLE_ALREADY = "You already had the pole equipped, so there is no weapon to give back.",
+    MSG_FISH_NO_SAVED = "No weapon was saved when you entered fishing mode, so nothing was swapped back.",
     MSG_FISH_MISSING_ITEM = "Could not restore %s: it is no longer in your bags.",
     BINDING_CAST_LOOT = "Cast / loot (one press = one action)",
     STATUS_LOOT_KEY = "%s: loot",

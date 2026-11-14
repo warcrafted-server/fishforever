@@ -255,6 +255,9 @@ function FishingMode:Enter()
     if slotHasPole(MAIN_HAND) then
         if activate() then
             ns:Print(ns.L.MSG_FISH_ENTERED)
+            if not hasSavedGear(charDB.savedGear) then
+                ns:Print(ns.L.MSG_FISH_POLE_ALREADY)
+            end
         end
         return
     end
@@ -295,6 +298,9 @@ function FishingMode:Exit()
     end
 
     local saved = charDB.savedGear
+    if not hasSavedGear(saved) then
+        ns:Print(ns.L.MSG_FISH_NO_SAVED)
+    end
     if hasSavedGear(saved) then
         restoreSlot(MAIN_HAND, saved.mainHand)
         -- The main-hand swap locks items for a moment; equipping the off-hand

@@ -37,6 +37,8 @@ local translations = {
     MSG_FISH_NO_POLE = "No hay ninguna caña de pescar en las bolsas.",
     MSG_FISH_ENTERED = "Modo pesca activado.",
     MSG_FISH_EXITED = "Modo pesca desactivado.",
+    MSG_FISH_POLE_ALREADY = "Ya llevabas la caña equipada, así que no hay arma que devolver.",
+    MSG_FISH_NO_SAVED = "Al entrar en modo pesca no se guardó ningún arma, así que no se ha cambiado nada.",
     MSG_FISH_MISSING_ITEM = "No se pudo restaurar %s: ya no está en las bolsas.",
     BINDING_CAST_LOOT = "Lanzar / recoger (una pulsación = una acción)",
     STATUS_LOOT_KEY = "%s: recoger",
