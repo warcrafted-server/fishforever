@@ -66,6 +66,7 @@ ns.defaults = {
             warn = true,
             sound = true,
             button = true,
+            hideWhenNone = true,
         },
         minimap = {
             hide = false,

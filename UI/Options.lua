@@ -120,6 +120,7 @@ local function registerPanel()
 
     addHeader(layout, "OPT_SEC_LURE")
     addCheckbox(newCategory, "FishForever_LureButton", "button", settings.lure, true, "OPT_LURE_BUTTON", "OPT_LURE_BUTTON_TIP", onLureButton)
+    addCheckbox(newCategory, "FishForever_LureHide", "hideWhenNone", settings.lure, true, "OPT_LURE_HIDE", "OPT_LURE_HIDE_TIP", onLureButton)
     addCheckbox(newCategory, "FishForever_LureWarn", "warn", settings.lure, true, "OPT_LURE_WARN", "OPT_LURE_WARN_TIP")
     addCheckbox(newCategory, "FishForever_LureSound", "sound", settings.lure, true, "OPT_LURE_SOUND", "OPT_LURE_SOUND_TIP")
 
