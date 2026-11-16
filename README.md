@@ -14,6 +14,7 @@ Addon de pesca para **WoW Forever**: botón flotador de un toque, caja de aparej
 - **Cebos con una pulsación:** el botón de cebo (o su tecla) pone el mejor cebo de tus bolsas y muestra su tiempo restante; avisa cuando se acaba.
 - **Oye la picada:** al pescar suben los efectos de sonido y bajan la música y el ambiente.
 - **Aspecto nativo:** botones de acción como los de tus barras (tecla, barrido de tiempo, destello al capturar), y **botón en el minimapa**.
+- **Panel de opciones** nativo (`/ff options`) con todos los ajustes.
 - **Aviso de bolsas** al lanzar con pocos huecos libres.
 - **Registro local de capturas:** qué pescas y dónde.
 
@@ -48,6 +49,7 @@ El clic izquierdo en el botón del minimapa muestra u oculta el botón flotador;
 | `/ff lock` | Bloquea o desbloquea su posición |
 | `/ff sound` | Activa o desactiva el realce de sonido |
 | `/ff minimap` | Muestra u oculta el botón del minimapa |
+| `/ff options` | Abre el panel de opciones |
 | `/ff stats` | Ventana de la sesión de pesca (también Mayús + clic izquierdo en el minimapa) |
 
 ## Privacidad

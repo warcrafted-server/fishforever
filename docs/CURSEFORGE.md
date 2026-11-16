@@ -19,12 +19,13 @@ Paste into the project description: English first, then Spanish. Updated on ever
 - **Hear the bite:** while fishing, sound effects go up and music and ambience go down, then everything returns to your settings.
 - **Native look:** the floating button and the lure button are action buttons like the ones on your bars, with your bound key, a time sweep (green, amber, red) and a flash when you catch something. The floating button also shows catch or escaped messages. Show or hide it with a left click on the minimap button. Clicking it casts; looting needs the key or a right click on the bobber.
 - **Bag warning:** when you cast with 5 or fewer free slots (or full bags) a message appears in the centre of the screen, at most once a minute. It never blocks the cast.
+- **Options panel:** **/ff options** opens a native panel with every setting: floating button, lures, sound, bag warning and minimap button.
 - **Session stats** (**/ff stats** or Shift + left click on the minimap button): time fishing, catches per hour, gold per hour, success rate and what you caught, coloured by rarity, in the game's own window style.
 - **Catch log:** what you catch and where is saved locally. Nothing is sent anywhere.
 - English and Spanish.
 
 ## Commands
-**/ff** shows the help. **/ff fish**, **/ff button**, **/ff lock**, **/ff sound**, **/ff minimap**, **/ff stats**.
+**/ff** shows the help. **/ff fish**, **/ff button**, **/ff lock**, **/ff sound**, **/ff minimap**, **/ff stats**, **/ff options**.
 
 ## License
 Free for non-commercial use under WNCL-1.0. Source: https://github.com/warcrafted-server/fishforever
@@ -45,12 +46,13 @@ Free for non-commercial use under WNCL-1.0. Source: https://github.com/warcrafte
 - **Oye la picada:** al pescar suben los efectos de sonido y bajan la música y el ambiente; después todo vuelve a tus ajustes.
 - **Aspecto nativo:** el botón flotador y el de cebo son botones de acción como los de tus barras, con tu tecla asignada, barrido de tiempo (verde, ámbar y rojo) y destello al capturar. El botón flotador también avisa de captura o de pez escapado. Se muestra u oculta con clic izquierdo en el botón del minimapa. Un clic en él lanza; para recoger, la tecla o clic derecho sobre el corcho.
 - **Aviso de bolsas:** al lanzar con 5 huecos libres o menos (o con las bolsas llenas) sale un mensaje en el centro de la pantalla, como mucho una vez por minuto. Nunca bloquea el lanzamiento.
+- **Panel de opciones:** **/ff options** abre un panel nativo con todos los ajustes: botón flotador, cebos, sonido, aviso de bolsas y botón del minimapa.
 - **Estadísticas de la sesión** (**/ff stats** o Mayús + clic izquierdo en el botón del minimapa): tiempo pescando, capturas por hora, oro por hora, porcentaje de éxito y lo pescado, con el color de su rareza, en el estilo de ventana del juego.
 - **Registro de capturas:** qué pescas y dónde se guarda en tu equipo. No se envía nada a ningún sitio.
 - Español e inglés.
 
 ### Comandos
-**/ff** muestra la ayuda. **/ff fish**, **/ff button**, **/ff lock**, **/ff sound**, **/ff minimap**, **/ff stats**.
+**/ff** muestra la ayuda. **/ff fish**, **/ff button**, **/ff lock**, **/ff sound**, **/ff minimap**, **/ff stats**, **/ff options**.
 
 ### Licencia
 Gratis para uso no comercial bajo WNCL-1.0. Código: https://github.com/warcrafted-server/fishforever

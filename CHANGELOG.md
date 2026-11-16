@@ -5,6 +5,17 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.5.0] - 2026-11-16
+
+### Añadido
+
+- Panel de opciones nativo (`/ff options`, en Opciones > Addons > FishForever) con todo lo configurable: botín directo a las bolsas, mostrar el botón flotador en modo pesca, sesión nueva al entrar al juego, botón flotador (mostrar, bloquear, tamaño, mensajes, tecla, destello), cebos (mostrar el botón, ocultarlo sin cebos, aviso y sonido), sonido (realce, efectos al máximo, nivel de música y ambiente, tiempo de restauración), bolsas (aviso y umbral de huecos) y minimapa.
+- Opción para que el botón de cebo se oculte cuando no tienes cebos en las bolsas ni en la caña (activada por defecto, como en la 0.4.1).
+
+### Cambiado
+
+- El botón del minimapa, el aviso de bolsas, el aviso del cebo y el realce de sonido leen ahora sus ajustes del panel y los aplican al momento.
+
 ## [0.4.1] - 2026-11-15
 
 ### Cambiado

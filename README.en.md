@@ -14,6 +14,7 @@ Fishing addon for **WoW Forever**: one-touch bobber button, tackle box with lure
 - **Lures with one press:** the lure button (or its key) applies the best lure in your bags and shows its time left; it warns you when it runs out.
 - **Hear the bite:** while fishing, sound effects go up and music and ambience go down.
 - **Native look:** action buttons like the ones on your bars (key, time sweep, flash on catch), plus a **minimap button**.
+- **Native options panel** (`/ff options`) with every setting.
 - **Bag warning** when you cast with few free slots.
 - **Local catch log:** what you catch and where.
 
@@ -48,6 +49,7 @@ Left-click the minimap button to show or hide the floating button; Shift + drag 
 | `/ff lock` | Lock or unlock its position |
 | `/ff sound` | Toggle the sound boost |
 | `/ff minimap` | Show or hide the minimap button |
+| `/ff options` | Open the options panel |
 | `/ff stats` | Fishing session window (also Shift + left click on the minimap button) |
 
 ## Privacy

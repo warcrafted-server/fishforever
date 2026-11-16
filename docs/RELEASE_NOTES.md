@@ -1,3 +1,21 @@
+## 0.5.0 (2026-11-16)
+
+### Added
+- Native options panel (**/ff options**, under Options > AddOns > FishForever) with everything configurable: loot straight to the bags, floating button (show, lock, size, messages, key, catch flash), lures (button, hide it when you have none, warning and sound), sound (boost, music and ambience level, restore delay), bag warning (on or off and how many free slots) and the minimap button.
+- Option to hide the lure button when you have no lures in your bags or on your pole (on by default).
+
+### Changed
+- The minimap button, the bag warning, the lure warning and the sound boost now read their settings from the panel and apply them right away.
+
+## 0.5.0 (2026-11-16)
+
+### Añadido
+- Panel de opciones nativo (**/ff options**, en Opciones > Addons > FishForever) con todo lo configurable: botín directo a las bolsas, botón flotador (mostrar, bloquear, tamaño, mensajes, tecla, destello), cebos (botón, ocultarlo sin cebos, aviso y sonido), sonido (realce, nivel de música y ambiente, tiempo de restauración), aviso de bolsas (activarlo y cuántos huecos libres) y botón del minimapa.
+- Opción para ocultar el botón de cebo cuando no tienes cebos en las bolsas ni en la caña (activada por defecto).
+
+### Cambiado
+- El botón del minimapa, el aviso de bolsas, el aviso del cebo y el realce de sonido leen ahora sus ajustes del panel y los aplican al momento.
+
 ## 0.4.1 (2026-11-15)
 
 ### Changed
