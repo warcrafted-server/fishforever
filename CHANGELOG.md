@@ -5,6 +5,15 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.6.0] - 2026-11-17
+
+### Añadido
+
+- Asesor de zona y nivel de pesca: `/ff zone` dice si puedes pescar en la zona actual con tu nivel (Pesca mínimo por zona, tabla de WoW Classic), si todavía se te escapan peces y a partir de qué nivel no, y qué zonas probar a continuación.
+- Avisos del asesor: al activar el modo pesca en una zona donde aún no llega tu nivel, y cuando tu Pesca se acerca a su máximo para recordarte entrenar.
+- La ventana de la sesión muestra una línea con tu nivel de Pesca y la zona.
+- Sección «Asesor» en el panel de opciones para activar o desactivar los consejos.
+
 ## [0.5.0] - 2026-11-16
 
 ### Añadido

@@ -1,3 +1,19 @@
+## 0.6.0 (2026-11-17)
+
+### Added
+- Zone and skill advisor: **/ff zone** tells you whether you can fish in the current zone at your level (minimum Fishing skill per zone, from the WoW Classic table), whether fish still escape and from which skill they stop, and which zones to try next.
+- Advisor warnings: when you turn on fishing mode in a zone your skill does not reach yet, and when your Fishing is close to its maximum so you remember to train.
+- The session window shows a line with your Fishing skill and the zone.
+- An "Advisor" section in the options panel to turn the tips on or off.
+
+## 0.6.0 (2026-11-17)
+
+### Añadido
+- Asesor de zona y nivel de pesca: **/ff zone** dice si puedes pescar en la zona actual con tu nivel (Pesca mínimo por zona, tabla de WoW Classic), si todavía se te escapan peces y a partir de qué nivel no, y qué zonas probar a continuación.
+- Avisos del asesor: al activar el modo pesca en una zona a la que aún no llega tu nivel, y cuando tu Pesca se acerca a su máximo para recordarte entrenar.
+- La ventana de la sesión muestra una línea con tu nivel de Pesca y la zona.
+- Sección «Asesor» en el panel de opciones para activar o desactivar los consejos.
+
 ## 0.5.0 (2026-11-16)
 
 ### Added
