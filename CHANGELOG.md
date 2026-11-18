@@ -5,6 +5,12 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.6.1] - 2026-11-18
+
+### Corregido
+
+- La barra de proporción de cada objeto en la ventana de la sesión vuelve a ser fina y ya no se superpone al nombre del objeto.
+
 ## [0.6.0] - 2026-11-17
 
 ### Añadido

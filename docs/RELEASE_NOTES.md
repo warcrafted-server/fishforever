@@ -1,3 +1,13 @@
+## 0.6.1 (2026-11-18)
+
+### Fixed
+- The share bar of each item in the session window is thin again and no longer overlaps the item name.
+
+## 0.6.1 (2026-11-18)
+
+### Corregido
+- La barra de proporción de cada objeto en la ventana de la sesión vuelve a ser fina y ya no se superpone al nombre del objeto.
+
 ## 0.6.0 (2026-11-17)
 
 ### Added
