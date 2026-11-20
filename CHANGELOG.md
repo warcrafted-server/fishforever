@@ -5,6 +5,12 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.7.0] - 2026-11-20
+
+### Añadido
+
+- Mayús + clic derecho en el botón del minimapa abre el panel de opciones, y el tooltip del botón lo indica.
+
 ## [0.6.1] - 2026-11-18
 
 ### Corregido

@@ -1,3 +1,13 @@
+## 0.7.0 (2026-11-20)
+
+### Added
+- Shift + right click on the minimap button opens the options panel, and the button tooltip says so.
+
+## 0.7.0 (2026-11-20)
+
+### Añadido
+- Mayús + clic derecho en el botón del minimapa abre el panel de opciones, y el tooltip del botón lo indica.
+
 ## 0.6.1 (2026-11-18)
 
 ### Fixed

@@ -51,7 +51,7 @@ Left-click the minimap button to show or hide the floating button; Shift + drag 
 | `/ff sound` | Toggle the sound boost |
 | `/ff minimap` | Show or hide the minimap button |
 | `/ff zone` | Fishing advice for the current zone at your skill |
-| `/ff options` | Open the options panel |
+| `/ff options` | Open the options panel (also Shift + right click on the minimap button) |
 | `/ff stats` | Fishing session window (also Shift + left click on the minimap button) |
 
 ## Privacy

@@ -51,7 +51,7 @@ El clic izquierdo en el botón del minimapa muestra u oculta el botón flotador;
 | `/ff sound` | Activa o desactiva el realce de sonido |
 | `/ff minimap` | Muestra u oculta el botón del minimapa |
 | `/ff zone` | Consejo de pesca para la zona actual según tu nivel |
-| `/ff options` | Abre el panel de opciones |
+| `/ff options` | Abre el panel de opciones (también Mayús + clic derecho en el minimapa) |
 | `/ff stats` | Ventana de la sesión de pesca (también Mayús + clic izquierdo en el minimapa) |
 
 ## Privacidad
