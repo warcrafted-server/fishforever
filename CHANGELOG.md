@@ -5,6 +5,12 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.8.0] - 2026-11-21
+
+### Añadido
+
+- Botón «Zonas» en la ventana de la sesión: abre una ventana con las zonas de pesca recomendadas para tu nivel, las que no pierden peces y las siguientes a probar, con la regla de escapes explicada.
+
 ## [0.7.0] - 2026-11-20
 
 ### Añadido

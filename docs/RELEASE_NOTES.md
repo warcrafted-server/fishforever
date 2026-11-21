@@ -1,3 +1,13 @@
+## 0.8.0 (2026-11-21)
+
+### Added
+- "Zones" button in the session window: opens a window with the fishing zones recommended for your skill, the ones where no fish escape and the next ones to try, with the escape rule explained.
+
+## 0.8.0 (2026-11-21)
+
+### Añadido
+- Botón «Zonas» en la ventana de la sesión: abre una ventana con las zonas de pesca recomendadas para tu nivel, las que no pierden peces y las siguientes a probar, con la regla de escapes explicada.
+
 ## 0.7.0 (2026-11-20)
 
 ### Added
