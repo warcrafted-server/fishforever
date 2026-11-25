@@ -1,3 +1,13 @@
+## 0.10.1 (2026-11-25)
+
+### Fixed
+- Gold per hour now fits its card in the session window: from 1 gold on, copper is left out.
+
+## 0.10.1 (2026-11-25)
+
+### Corregido
+- El oro por hora cabe en su tarjeta de la ventana de la sesión: a partir de 1 de oro se omite el cobre.
+
 ## 0.8.0 (2026-11-21)
 
 ### Added

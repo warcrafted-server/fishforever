@@ -5,6 +5,12 @@ El formato sigue [Keep a Changelog](https://keepachangelog.com/es-ES/1.1.0/) y e
 
 ## [Sin publicar]
 
+## [0.10.1] - 2026-11-25
+
+### Corregido
+
+- El oro por hora cabe en su tarjeta de la ventana de la sesión: a partir de 1 de oro se omite el cobre.
+
 ## [0.8.0] - 2026-11-21
 
 ### Añadido
